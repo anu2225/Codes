@@ -1,0 +1,290 @@
+roomrrequestdto 
+
+
+package com.smartHotelBooking.smartHotelBooking.dto.requestdto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RoomRequestDTO {
+    private Long roomId;
+    private String type;
+    private double price;
+    private boolean availability;
+    private String features;
+    private Long hotelId;   // Add केलेलं, कारण Room -> Hotel relation आहे
+}
+
+
+roomresponcedto
+package com.smartHotelBooking.smartHotelBooking.dto.responsedto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RoomResponseDTO {
+    private Long roomId;
+    private String type;
+    private double price;
+    private boolean availability;
+    private String features;
+    private Long hotelId;
+}
+
+
+room.java
+
+package com.smartHotelBooking.smartHotelBooking.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "rooms")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Room {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long roomId;
+
+    private String type;
+    private double price;
+    private boolean availability;
+    private String features;
+
+    @ManyToOne
+    @JoinColumn(name = "hotel_id", nullable = false)
+    private Hotel hotel;
+}
+
+
+roomrepository
+
+package com.smartHotelBooking.smartHotelBooking.repository;
+
+import com.smartHotelBooking.smartHotelBooking.entity.Room;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface RoomRepository extends JpaRepository<Room, Long> {
+    List<Room> findByHotel_HotelId(Long hotelId);
+    List<Room> findByPriceBetween(Double minPrice, Double maxPrice);
+    List<Room> findByAvailabilityTrue();
+}
+
+
+roomservice 
+
+
+package com.smartHotelBooking.smartHotelBooking.service;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.RoomRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.RoomResponseDTO;
+
+import java.util.List;
+
+public interface RoomService {
+    RoomResponseDTO createRoom(RoomRequestDTO roomRequestDTO);
+    RoomResponseDTO updateRoom(Long roomId, RoomRequestDTO roomRequestDTO);
+    void deleteRoom(Long roomId);
+    RoomResponseDTO getRoomById(Long roomId);
+    List<RoomResponseDTO> getAllRooms();
+    List<RoomResponseDTO> getRoomsByHotel(Long hotelId);
+    List<RoomResponseDTO> filterByPrice(Double min, Double max);
+    List<RoomResponseDTO> getAvailableRooms();
+}
+
+
+
+roomserviceimpl
+
+package com.smartHotelBooking.smartHotelBooking.service.impl;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.RoomRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.RoomResponseDTO;
+import com.smartHotelBooking.smartHotelBooking.entity.Hotel;
+import com.smartHotelBooking.smartHotelBooking.entity.Room;
+import com.smartHotelBooking.smartHotelBooking.repository.HotelRepository;
+import com.smartHotelBooking.smartHotelBooking.repository.RoomRepository;
+import com.smartHotelBooking.smartHotelBooking.service.RoomService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class RoomServiceImpl implements RoomService {
+
+    @Autowired
+    private RoomRepository roomRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
+    @Override
+    public RoomResponseDTO createRoom(RoomRequestDTO roomRequestDTO) {
+        Hotel hotel = hotelRepository.findById(roomRequestDTO.getHotelId())
+                .orElseThrow(() -> new RuntimeException("Hotel not found"));
+
+        Room room = new Room();
+        room.setType(roomRequestDTO.getType());
+        room.setPrice(roomRequestDTO.getPrice());
+        room.setAvailability(roomRequestDTO.isAvailability());
+        room.setFeatures(roomRequestDTO.getFeatures());
+        room.setHotel(hotel);
+
+        Room saved = roomRepository.save(room);
+        return mapToDTO(saved);
+    }
+
+    @Override
+    public RoomResponseDTO updateRoom(Long roomId, RoomRequestDTO roomRequestDTO) {
+        Room room = roomRepository.findById(roomId)
+                .orElseThrow(() -> new RuntimeException("Room not found"));
+
+        room.setType(roomRequestDTO.getType());
+        room.setPrice(roomRequestDTO.getPrice());
+        room.setAvailability(roomRequestDTO.isAvailability());
+        room.setFeatures(roomRequestDTO.getFeatures());
+
+        if (roomRequestDTO.getHotelId() != null) {
+            Hotel hotel = hotelRepository.findById(roomRequestDTO.getHotelId())
+                    .orElseThrow(() -> new RuntimeException("Hotel not found"));
+            room.setHotel(hotel);
+        }
+
+        Room updated = roomRepository.save(room);
+        return mapToDTO(updated);
+    }
+
+    @Override
+    public void deleteRoom(Long roomId) {
+        roomRepository.deleteById(roomId);
+    }
+
+    @Override
+    public RoomResponseDTO getRoomById(Long roomId) {
+        return roomRepository.findById(roomId)
+                .map(this::mapToDTO)
+                .orElseThrow(() -> new RuntimeException("Room not found"));
+    }
+
+    @Override
+    public List<RoomResponseDTO> getAllRooms() {
+        return roomRepository.findAll().stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RoomResponseDTO> getRoomsByHotel(Long hotelId) {
+        return roomRepository.findByHotel_HotelId(hotelId).stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RoomResponseDTO> filterByPrice(Double min, Double max) {
+        return roomRepository.findByPriceBetween(min, max).stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RoomResponseDTO> getAvailableRooms() {
+        return roomRepository.findByAvailabilityTrue().stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private RoomResponseDTO mapToDTO(Room room) {
+        return new RoomResponseDTO(
+                room.getRoomId(),
+                room.getType(),
+                room.getPrice(),
+                room.isAvailability(),
+                room.getFeatures(),
+                room.getHotel().getHotelId()
+        );
+    }
+}
+
+
+roomconttoller java 
+
+package com.smartHotelBooking.smartHotelBooking.controller;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.RoomRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.RoomResponseDTO;
+import com.smartHotelBooking.smartHotelBooking.service.RoomService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/rooms")
+public class RoomController {
+
+    @Autowired
+    private RoomService roomService;
+
+    @PostMapping
+    public RoomResponseDTO createRoom(@RequestBody RoomRequestDTO roomRequestDTO) {
+        return roomService.createRoom(roomRequestDTO);
+    }
+
+    @PutMapping("/{id}")
+    public RoomResponseDTO updateRoom(@PathVariable Long id, @RequestBody RoomRequestDTO roomRequestDTO) {
+        return roomService.updateRoom(id, roomRequestDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteRoom(@PathVariable Long id) {
+        roomService.deleteRoom(id);
+    }
+
+    @GetMapping("/{id}")
+    public RoomResponseDTO getRoomById(@PathVariable Long id) {
+        return roomService.getRoomById(id);
+    }
+
+    @GetMapping
+    public List<RoomResponseDTO> getAllRooms() {
+        return roomService.getAllRooms();
+    }
+
+    @GetMapping("/hotel/{hotelId}")
+    public List<RoomResponseDTO> getRoomsByHotel(@PathVariable Long hotelId) {
+        return roomService.getRoomsByHotel(hotelId);
+    }
+
+    @GetMapping("/filter")
+    public List<RoomResponseDTO> filterByPrice(@RequestParam Double min, @RequestParam Double max) {
+        return roomService.filterByPrice(min, max);
+    }
+
+    @GetMapping("/available")
+    public List<RoomResponseDTO> getAvailableRooms() {
+        return roomService.getAvailableRooms();
+    }
+}
+
+

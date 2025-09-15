@@ -83,8 +83,14 @@ import java.util.List;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
+
+    // Find all rooms for a given hotel
     List<Room> findByHotel_HotelId(Long hotelId);
+
+    // Find rooms cheaper than a given price
     List<Room> findByPriceBetween(Double minPrice, Double maxPrice);
+
+    // Find all available rooms
     List<Room> findByAvailabilityTrue();
 }
 

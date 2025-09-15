@@ -1,0 +1,267 @@
+hotel java 
+
+
+package com.smartHotelBooking.smartHotelBooking.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "hotels")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Hotel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long hotelId;
+
+    @Column(nullable = false, length = 100)
+    private String name;
+
+    @Column(nullable = false)
+    private String location;
+
+    private String amenities;   // comma separated or JSON string depending on frontend
+    private Double rating;
+    private String imageUrl;
+}
+
+
+hotelrequestdto
+
+package com.smartHotelBooking.smartHotelBooking.dto.requestdto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class HotelRequestDTO {
+    private Long hotelId;        // optional for create
+    private String name;
+    private String location;
+    private String amenities;
+    private Double rating;
+    private String imageUrl;
+}
+
+
+
+hotelresponcedto
+
+
+package com.smartHotelBooking.smartHotelBooking.dto.responsedto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class HotelResponseDTO {
+    private Long hotelId;
+    private String name;
+    private String location;
+    private String amenities;
+    private Double rating;
+    private String imageUrl;
+}
+
+
+
+hotel repositpry 
+
+package com.smartHotelBooking.smartHotelBooking.repository;
+
+import com.smartHotelBooking.smartHotelBooking.entity.Hotel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface HotelRepository extends JpaRepository<Hotel, Long> {
+    // useful custom queries you may want
+    List<Hotel> findByLocationContainingIgnoreCase(String location);
+    List<Hotel> findByRatingGreaterThanEqual(Double rating);
+    List<Hotel> findByNameContainingIgnoreCase(String name);
+    List<Hotel> findByAmenitiesContainingIgnoreCase(String amenity);
+}
+
+
+
+hotelsrrvice 
+
+package com.smartHotelBooking.smartHotelBooking.service;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.HotelRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.HotelResponseDTO;
+
+import java.util.List;
+
+public interface HotelService {
+    HotelResponseDTO createHotel(HotelRequestDTO dto);
+    HotelResponseDTO updateHotel(Long id, HotelRequestDTO dto);
+    void deleteHotel(Long id);
+    HotelResponseDTO getHotelById(Long id);
+    List<HotelResponseDTO> getAllHotels();
+    List<HotelResponseDTO> searchByLocation(String location);
+    List<HotelResponseDTO> filterByRating(Double minRating);
+}
+
+
+serviceimpl
+
+package com.smartHotelBooking.smartHotelBooking.service.impl;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.HotelRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.HotelResponseDTO;
+import com.smartHotelBooking.smartHotelBooking.entity.Hotel;
+import com.smartHotelBooking.smartHotelBooking.repository.HotelRepository;
+import com.smartHotelBooking.smartHotelBooking.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class HotelServiceImpl implements HotelService {
+
+    private final HotelRepository hotelRepository;
+
+    @Autowired
+    public HotelServiceImpl(HotelRepository hotelRepository) {
+        this.hotelRepository = hotelRepository;
+    }
+
+    @Override
+    public HotelResponseDTO createHotel(HotelRequestDTO dto) {
+        Hotel hotel = new Hotel();
+        hotel.setName(dto.getName());
+        hotel.setLocation(dto.getLocation());
+        hotel.setAmenities(dto.getAmenities());
+        hotel.setRating(dto.getRating());
+        hotel.setImageUrl(dto.getImageUrl());
+        Hotel saved = hotelRepository.save(hotel);
+        return mapToDTO(saved);
+    }
+
+    @Override
+    public HotelResponseDTO updateHotel(Long id, HotelRequestDTO dto) {
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(() -> new RuntimeException("Hotel not found"));
+        hotel.setName(dto.getName());
+        hotel.setLocation(dto.getLocation());
+        hotel.setAmenities(dto.getAmenities());
+        hotel.setRating(dto.getRating());
+        hotel.setImageUrl(dto.getImageUrl());
+        Hotel updated = hotelRepository.save(hotel);
+        return mapToDTO(updated);
+    }
+
+    @Override
+    public void deleteHotel(Long id) {
+        hotelRepository.deleteById(id);
+    }
+
+    @Override
+    public HotelResponseDTO getHotelById(Long id) {
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(() -> new RuntimeException("Hotel not found"));
+        return mapToDTO(hotel);
+    }
+
+    @Override
+    public List<HotelResponseDTO> getAllHotels() {
+        return hotelRepository.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<HotelResponseDTO> searchByLocation(String location) {
+        return hotelRepository.findByLocationContainingIgnoreCase(location)
+                .stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<HotelResponseDTO> filterByRating(Double minRating) {
+        return hotelRepository.findByRatingGreaterThanEqual(minRating)
+                .stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+    private HotelResponseDTO mapToDTO(Hotel h) {
+        return new HotelResponseDTO(h.getHotelId(), h.getName(), h.getLocation(), h.getAmenities(), h.getRating(), h.getImageUrl());
+    }
+}
+
+
+
+
+hotelcontroller 
+
+package com.smartHotelBooking.smartHotelBooking.controller;
+
+import com.smartHotelBooking.smartHotelBooking.dto.requestdto.HotelRequestDTO;
+import com.smartHotelBooking.smartHotelBooking.dto.responsedto.HotelResponseDTO;
+import com.smartHotelBooking.smartHotelBooking.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/hotels")
+public class HotelController {
+
+    private final HotelService hotelService;
+
+    @Autowired
+    public HotelController(HotelService hotelService) { this.hotelService = hotelService; }
+
+    @PostMapping
+    public ResponseEntity<HotelResponseDTO> createHotel(@RequestBody HotelRequestDTO dto) {
+        return ResponseEntity.ok(hotelService.createHotel(dto));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<HotelResponseDTO>> getAll() {
+        return ResponseEntity.ok(hotelService.getAllHotels());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<HotelResponseDTO> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(hotelService.getHotelById(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<HotelResponseDTO> update(@PathVariable Long id, @RequestBody HotelRequestDTO dto) {
+        return ResponseEntity.ok(hotelService.updateHotel(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        hotelService.deleteHotel(id);
+        return ResponseEntity.ok("Hotel deleted");
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<HotelResponseDTO>> searchByLocation(@RequestParam String location) {
+        return ResponseEntity.ok(hotelService.searchByLocation(location));
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<HotelResponseDTO>> filterByRating(@RequestParam Double rating) {
+        return ResponseEntity.ok(hotelService.filterByRating(rating));
+    }
+}
+
+
+
+
+

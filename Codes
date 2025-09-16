@@ -1,250 +1,144 @@
-package com.smartHotelBooking.smartHotelBooking.controller;
+1)What is JDK,JRE,JVM?
 
-import com.smartHotelBooking.smartHotelBooking.dto.requestdto.RoomRequestDTO;
-import com.smartHotelBooking.smartHotelBooking.dto.responsedto.RoomResponseDTO;
-import com.smartHotelBooking.smartHotelBooking.entity.Room;
-import com.smartHotelBooking.smartHotelBooking.repository.RoomRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+2)What is Java bytecode?
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+3)Features of Java?
 
-@RestController
-@RequestMapping("/rooms")
-public class RoomController {
+4)Is JVM platform independent?
 
-    @Autowired
-    private RoomRepository roomRepository;
+5)What is class and object?
 
-    // ✅ Add Room
-    @PostMapping
-    public ResponseEntity<RoomResponseDTO> createRoom(@RequestBody RoomRequestDTO roomRequestDTO) {
-        Room room = new Room();
-        room.setType(roomRequestDTO.getType());
-        room.setPrice(roomRequestDTO.getPrice());
-        room.setAvailability(roomRequestDTO.getAvailability());
-        room.setFeatures(roomRequestDTO.getFeatures());
-        room.setHotelId(roomRequestDTO.getHotelId());
+6)What is implicit and explicit casting?
 
-        Room savedRoom = roomRepository.save(room);
+7)Difference between while and do..while.
 
-        RoomResponseDTO responseDTO = new RoomResponseDTO(savedRoom.getRoomId(), savedRoom.getType(),
-                savedRoom.getPrice(), savedRoom.getAvailability(), savedRoom.getFeatures(),
-                savedRoom.getHotelId());
+8)What is encapsulation?
 
-        return ResponseEntity.ok(responseDTO);
-    }
+9)Object oriented concepts.
 
-    // ✅ Get all Rooms
-    @GetMapping
-    public ResponseEntity<List<RoomResponseDTO>> getAllRooms() {
-        List<RoomResponseDTO> rooms = roomRepository.findAll().stream()
-                .map(r -> new RoomResponseDTO(r.getRoomId(), r.getType(), r.getPrice(),
-                        r.getAvailability(), r.getFeatures(), r.getHotelId()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(rooms);
-    }
+10)What is multiple inheritance?Why multiple inheritance is not supported in Java?
 
-    // ✅ Get Room by Id
-    @GetMapping("/{id}")
-    public ResponseEntity<RoomResponseDTO> getRoomById(@PathVariable Long id) {
-        Optional<Room> room = roomRepository.findById(id);
-        if (room.isPresent()) {
-            Room r = room.get();
-            RoomResponseDTO dto = new RoomResponseDTO(r.getRoomId(), r.getType(), r.getPrice(),
-                    r.getAvailability(), r.getFeatures(), r.getHotelId());
-            return ResponseEntity.ok(dto);
-        }
-        return ResponseEntity.notFound().build();
-    }
+11)What is the scope of local,instance and static variables?
 
-    // ✅ Update Room
-    @PutMapping("/{id}")
-    public ResponseEntity<RoomResponseDTO> updateRoom(@PathVariable Long id,
-                                                      @RequestBody RoomRequestDTO roomRequestDTO) {
-        Optional<Room> existing = roomRepository.findById(id);
-        if (existing.isPresent()) {
-            Room room = existing.get();
-            room.setType(roomRequestDTO.getType());
-            room.setPrice(roomRequestDTO.getPrice());
-            room.setAvailability(roomRequestDTO.getAvailability());
-            room.setFeatures(roomRequestDTO.getFeatures());
-            room.setHotelId(roomRequestDTO.getHotelId());
+12)class Employee
 
-            Room updated = roomRepository.save(room);
-            RoomResponseDTO responseDTO = new RoomResponseDTO(updated.getRoomId(), updated.getType(),
-                    updated.getPrice(), updated.getAvailability(), updated.getFeatures(),
-                    updated.getHotelId());
-            return ResponseEntity.ok(responseDTO);
-        }
-        return ResponseEntity.notFound().build();
-    }
+{}
 
-    // ✅ Delete Room
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRoom(@PathVariable Long id) {
-        if (roomRepository.existsById(id)) {
-            roomRepository.deleteById(id);
-            return ResponseEntity.ok("Room deleted successfully!");
-        }
-        return ResponseEntity.notFound().build();
-    }
+Emp e=new Employee();
 
-    // ✅ Get Rooms by Hotel Id
-    @GetMapping("/hotel/{hotelId}")
-    public ResponseEntity<List<RoomResponseDTO>> getRoomsByHotel(@PathVariable Long hotelId) {
-        List<Room> rooms = roomRepository.findByHotelId(hotelId);
-        List<RoomResponseDTO> result = rooms.stream()
-                .map(r -> new RoomResponseDTO(r.getRoomId(), r.getType(), r.getPrice(),
-                        r.getAvailability(), r.getFeatures(), r.getHotelId()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(result);
-    }
+Emp e1=null;
 
-    // ✅ Filter Rooms by Price Range
-    @GetMapping("/filter")
-    public ResponseEntity<List<RoomResponseDTO>> filterByPrice(@RequestParam Double minPrice,
-                                                               @RequestParam Double maxPrice) {
-        List<Room> rooms = roomRepository.findByPriceBetween(minPrice, maxPrice);
-        List<RoomResponseDTO> result = rooms.stream()
-                .map(r -> new RoomResponseDTO(r.getRoomId(), r.getType(), r.getPrice(),
-                        r.getAvailability(), r.getFeatures(), r.getHotelId()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(result);
-    }
+What is e and e1?
 
-    // ✅ Get Available Rooms
-    @GetMapping("/available")
-    public ResponseEntity<List<RoomResponseDTO>> getAvailableRooms() {
-        List<Room> rooms = roomRepository.findByAvailabilityTrue();
-        List<RoomResponseDTO> result = rooms.stream()
-                .map(r -> new RoomResponseDTO(r.getRoomId(), r.getType(), r.getPrice(),
-                        r.getAvailability(), r.getFeatures(), r.getHotelId()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(result);
-    }
-}
+13)What is overloading and overriding?
 
+14)Can you overload final method?
 
+15)What is final modifier in Java?
 
+16)What are the valid modifiers for a Java class?
 
-package com.smartHotelBooking.smartHotelBooking.controller;
+17)What is the difference between protected and default?
 
-import com.smartHotelBooking.smartHotelBooking.dto.requestdto.HotelRequestDTO;
-import com.smartHotelBooking.smartHotelBooking.dto.responsedto.HotelResponseDTO;
-import com.smartHotelBooking.smartHotelBooking.entity.Hotel;
-import com.smartHotelBooking.smartHotelBooking.repository.HotelRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+18)If a method is declared as protected in the super class, what are the valid modifiers that can be used while overriding the method in the subclass?
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+19)Similarities of abstract and interface
 
-@RestController
-@RequestMapping("/hotels")
-public class HotelController {
+20)Difference between abstract and interface
 
-    @Autowired
-    private HotelRepository hotelRepository;
+21)What is the default access modifier for method and variable declared in an interface?
 
-    // ✅ Create Hotel
-    @PostMapping
-    public ResponseEntity<HotelResponseDTO> createHotel(@RequestBody HotelRequestDTO hotelRequestDTO) {
-        Hotel hotel = new Hotel();
-        hotel.setName(hotelRequestDTO.getName());
-        hotel.setLocation(hotelRequestDTO.getLocation());
-        hotel.setManagerId(hotelRequestDTO.getManagerId());
-        hotel.setAmenities(hotelRequestDTO.getAmenities());
-        hotel.setRating(hotelRequestDTO.getRating());
+22)What is interface inheritance in Java?When do we use interface inheritance?
 
-        Hotel savedHotel = hotelRepository.save(hotel);
+23)What is abstract method and concrete method?
 
-        HotelResponseDTO responseDTO = new HotelResponseDTO(savedHotel.getHotelId(),
-                savedHotel.getName(), savedHotel.getLocation(), savedHotel.getManagerId(),
-                savedHotel.getAmenities(), savedHotel.getRating());
+24)In the application development,how will you choose between abstract and interface?
 
-        return ResponseEntity.ok(responseDTO);
-    }
+25)What is a constructor? Is is mandatory to define a constructor in a Java class?
 
-    // ✅ Get all Hotels
-    @GetMapping
-    public ResponseEntity<List<HotelResponseDTO>> getAllHotels() {
-        List<HotelResponseDTO> hotels = hotelRepository.findAll().stream()
-                .map(h -> new HotelResponseDTO(h.getHotelId(), h.getName(), h.getLocation(),
-                        h.getManagerId(), h.getAmenities(), h.getRating()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(hotels);
-    }
+26)If a parameterized constructor is defined in a class, then is it mandatory to define default construcor?
 
-    // ✅ Get Hotel by Id
-    @GetMapping("/{id}")
-    public ResponseEntity<HotelResponseDTO> getHotelById(@PathVariable Long id) {
-        Optional<Hotel> hotel = hotelRepository.findById(id);
-        if (hotel.isPresent()) {
-            Hotel h = hotel.get();
-            HotelResponseDTO dto = new HotelResponseDTO(h.getHotelId(), h.getName(), h.getLocation(),
-                    h.getManagerId(), h.getAmenities(), h.getRating());
-            return ResponseEntity.ok(dto);
-        }
-        return ResponseEntity.notFound().build();
-    }
+27)What is constructor overloading?
 
-    // ✅ Update Hotel
-    @PutMapping("/{id}")
-    public ResponseEntity<HotelResponseDTO> updateHotel(@PathVariable Long id,
-                                                        @RequestBody HotelRequestDTO hotelRequestDTO) {
-        Optional<Hotel> existing = hotelRepository.findById(id);
-        if (existing.isPresent()) {
-            Hotel hotel = existing.get();
-            hotel.setName(hotelRequestDTO.getName());
-            hotel.setLocation(hotelRequestDTO.getLocation());
-            hotel.setManagerId(hotelRequestDTO.getManagerId());
-            hotel.setAmenities(hotelRequestDTO.getAmenities());
-            hotel.setRating(hotelRequestDTO.getRating());
+28)What is constructor chaining?
 
-            Hotel updated = hotelRepository.save(hotel);
-            HotelResponseDTO responseDTO = new HotelResponseDTO(updated.getHotelId(),
-                    updated.getName(), updated.getLocation(), updated.getManagerId(),
-                    updated.getAmenities(), updated.getRating());
-            return ResponseEntity.ok(responseDTO);
-        }
-        return ResponseEntity.notFound().build();
-    }
+29)What is this and super keyword in java?
 
-    // ✅ Delete Hotel
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteHotel(@PathVariable Long id) {
-        if (hotelRepository.existsById(id)) {
-            hotelRepository.deleteById(id);
-            return ResponseEntity.ok("Hotel deleted successfully!");
-        }
-        return ResponseEntity.notFound().build();
-    }
+30)What is the difference between String and StringBuffer?
 
-    // ✅ Search by Location
-    @GetMapping("/search")
-    public ResponseEntity<List<HotelResponseDTO>> searchByLocation(@RequestParam String location) {
-        List<Hotel> hotels = hotelRepository.findByLocation(location);
-        List<HotelResponseDTO> result = hotels.stream()
-                .map(h -> new HotelResponseDTO(h.getHotelId(), h.getName(), h.getLocation(),
-                        h.getManagerId(), h.getAmenities(), h.getRating()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(result);
-    }
+31)What is the differnece between StringBuffer and StringBuilder?
 
-    // ✅ Filter by Rating
-    @GetMapping("/filter")
-    public ResponseEntity<List<HotelResponseDTO>> filterByRating(@RequestParam Double rating) {
-        List<Hotel> hotels = hotelRepository.findByRatingGreaterThan(rating);
-        List<HotelResponseDTO> result = hotels.stream()
-                .map(h -> new HotelResponseDTO(h.getHotelId(), h.getName(), h.getLocation(),
-                        h.getManagerId(), h.getAmenities(), h.getRating()))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(result);
-    }
-}
+32)What is meant by naming collision in Java?How can you resolve this?
+
+33)What is the use of packages in Java?
+
+34)What is Object class?What are the methods of Object class that can be overridden in any class?
+
+35)Why do we override equals and hashCode method?
+
+36)What is the superclass in the exception hierarchy?
+
+37)Explain Error and Exception with example.
+
+38)What is an Exception?
+
+39)Explain the difference between checked and unchecked exception with example.
+
+40)What is the use of finally block?
+
+41)What is the difference between throw and throws?
+
+42)What do you mean by propagating the exception?
+
+43)While using multiple catch blocks for a try block,do we have to follow any order for the catch blocks?
+
+44)What is nested try block?
+
+45)What is custom exception?
+
+46)Explain collection framework.
+
+47)What is autoboxing and unboxing?
+
+48)Difference between list and set.
+
+49)Difference between Hashset and Treeset.
+
+50)What is iterator?
+
+51)Explain generics in Java.
+
+52)Difference between HashMap and TreeMap.
+
+53)Iterator and ListIteraor.
+
+54)What is ClassCastException in Java?When it will be thrown?
+
+55)What is NullPointerException?When it will be thrown?
+
+56)Explain Comparator and Comparable interfaces in Java?
+
+57)List is not sorted by default. How will you sort a list?
+
+58)Explain JDBC.
+
+59)What is a driver file?
+
+60)Difference between Statement and PreparedStatment.Which is preferred and why?
+
+61)What is sql injection?
+
+62)What is the advantage of new Date and Time API over legacy date and calendar classes?
+
+63)What is byte stream and character stream?Which stream is faster?
+
+64)What is stream?
+
+65)When do we use buffered streams?
+
+66)What is Lambda expression in Java8?
+
+67)Explain the use of Stream API in Java8.
+
+ 
+ 

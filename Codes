@@ -1,146 +1,3 @@
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-import java.util.Date;
-
-public class ErrorDetails {
-    private Date timestamp;
-    private String message;
-    private String details;
-
-    public ErrorDetails(Date timestamp, String message, String details) {
-        this.timestamp = timestamp;
-        this.message = message;
-        this.details = details;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-}
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
-
-import java.util.Date;
-
-@ControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(HotelNotFoundException.class)
-    public ResponseEntity<?> handleHotelNotFound(HotelNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(RoomNotFoundException.class)
-    public ResponseEntity<?> handleRoomNotFound(RoomNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<?> handleUserNotFound(UserNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(BookingNotFoundException.class)
-    public ResponseEntity<?> handleBookingNotFound(BookingNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(PaymentNotFoundException.class)
-    public ResponseEntity<?> handlePaymentNotFound(PaymentNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(ReviewNotFoundException.class)
-    public ResponseEntity<?> handleReviewNotFound(ReviewNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    // fallback for all other exceptions
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-}
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class HotelNotFoundException extends RuntimeException {
-    public HotelNotFoundException(String message) {
-        super(message);
-    }
-}
-
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class RoomNotFoundException extends RuntimeException {
-    public RoomNotFoundException(String message) {
-        super(message);
-    }
-}
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class UserNotFoundException extends RuntimeException {
-    public UserNotFoundException(String message) {
-        super(message);
-    }
-}
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class BookingNotFoundException extends RuntimeException {
-    public BookingNotFoundException(String message) {
-        super(message);
-    }
-}
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class PaymentNotFoundException extends RuntimeException {
-    public PaymentNotFoundException(String message) {
-        super(message);
-    }
-}
-
-
-
-
-package com.smarthotelbooking.smarthotelbookingsystem.exception;
-
-public class ReviewNotFoundException extends RuntimeException {
-    public ReviewNotFoundException(String message) {
-        super(message);
-    }
-}
-
 package com.smartHotelBooking.smartHotelBooking.exception;
 
 import org.springframework.http.HttpStatus;
@@ -154,48 +11,46 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(HotelNotFoundException.class)
-    public ResponseEntity<?> handleHotelNotFound(HotelNotFoundException ex, WebRequest request) {
+    // Helper method to reduce repetition
+    private ResponseEntity<ErrorDetails> buildErrorResponse(RuntimeException ex, WebRequest request, HttpStatus status) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorDetails, status);
+    }
+
+    @ExceptionHandler(HotelNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleHotelNotFound(HotelNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(RoomNotFoundException.class)
-    public ResponseEntity<?> handleRoomNotFound(RoomNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDetails> handleRoomNotFound(RoomNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<?> handleUserNotFound(UserNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDetails> handleUserNotFound(UserNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(BookingNotFoundException.class)
-    public ResponseEntity<?> handleBookingNotFound(BookingNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDetails> handleBookingNotFound(BookingNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(PaymentNotFoundException.class)
-    public ResponseEntity<?> handlePaymentNotFound(PaymentNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDetails> handlePaymentNotFound(PaymentNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ReviewNotFoundException.class)
-    public ResponseEntity<?> handleReviewNotFound(ReviewNotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDetails> handleReviewNotFound(ReviewNotFoundException ex, WebRequest request) {
+        return buildErrorResponse(ex, request, HttpStatus.NOT_FOUND);
     }
 
-    // fallback for all other exceptions
+    // Fallback for all other exceptions
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleGlobalException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
-
-

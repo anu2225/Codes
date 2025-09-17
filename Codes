@@ -1,43 +1,144 @@
-1)Html5 features
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
 
-2)What is doctype declaration?
+import java.util.Date;
 
-3)What is difference between div and span tag?
+public class ErrorDetails {
+    private Date timestamp;
+    private String message;
+    private String details;
 
-4)Html5 tags
+    public ErrorDetails(Date timestamp, String message, String details) {
+        this.timestamp = timestamp;
+        this.message = message;
+        this.details = details;
+    }
 
-5)Semantic tags in html
+    public Date getTimestamp() {
+        return timestamp;
+    }
 
-6)What is RWD?
+    public String getMessage() {
+        return message;
+    }
 
-7)CSS3 features (Box model etc)
+    public String getDetails() {
+        return details;
+    }
+}
 
-8)What is meta tag in html?
 
-9)What are the type of css selectors?
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
 
-10)What is the difference between id and class?
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
 
-11)What is DOM?
+import java.util.Date;
 
-12)What is Javascript?
+@ControllerAdvice
+public class GlobalExceptionHandler {
 
-13)What is client-side validation?
+    @ExceptionHandler(HotelNotFoundException.class)
+    public ResponseEntity<?> handleHotelNotFound(HotelNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-14)Javascript event handling.
+    @ExceptionHandler(RoomNotFoundException.class)
+    public ResponseEntity<?> handleRoomNotFound(RoomNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-15)What is jquery and javascript?
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFound(UserNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-16)Explain bootstrap grid system.
+    @ExceptionHandler(BookingNotFoundException.class)
+    public ResponseEntity<?> handleBookingNotFound(BookingNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-17)What are the two types of container used in bootstrap?
+    @ExceptionHandler(PaymentNotFoundException.class)
+    public ResponseEntity<?> handlePaymentNotFound(PaymentNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-18)Media query in css.
+    @ExceptionHandler(ReviewNotFoundException.class)
+    public ResponseEntity<?> handleReviewNotFound(ReviewNotFoundException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
-19)Bootstrap Navbar,card layout.
+    // fallback for all other exceptions
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
 
-20)What is strict equality in Javascript?
 
-21)What is JSON?
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
 
-22)What is JSON.Stringify?
+public class HotelNotFoundException extends RuntimeException {
+    public HotelNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
+
+public class RoomNotFoundException extends RuntimeException {
+    public RoomNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
+
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
+
+public class BookingNotFoundException extends RuntimeException {
+    public BookingNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
+
+public class PaymentNotFoundException extends RuntimeException {
+    public PaymentNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+
+
+package com.smarthotelbooking.smarthotelbookingsystem.exception;
+
+public class ReviewNotFoundException extends RuntimeException {
+    public ReviewNotFoundException(String message) {
+        super(message);
+    }
+}
+
+

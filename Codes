@@ -1,299 +1,348 @@
-package com.training.springrest.controller;
- 
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
- 
-import java.util.Arrays;
-import java.util.List;
- 
+package com.cognizant.smarthotelbooking.controller;
+
+import com.cognizant.smarthotelbooking.dto.requestdto.UserRegistrationDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.UserResponseDTO;
+import com.cognizant.smarthotelbooking.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
- 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.training.springrest.dto.ItemDTO;
-import com.training.springrest.service.ItemService;
- 
-@WebMvcTest(ItemController.class)
-public class ItemControllerTest {
- 
-    @Autowired
-    private MockMvc mockMvc;
- 
-    @MockBean
-    private ItemService itemService;
- 
-    @Autowired
-    private ObjectMapper objectMapper;
-    
-    @MockBean
-    private ModelMapper modelMapper;
-   
-    
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.hamcrest.Matchers.is;
+
+@WebMvcTest(UserController.class)
+public class UserControllerTest {
+
+    @Autowired private MockMvc mockMvc;
+    @Autowired private ObjectMapper objectMapper;
+    @MockBean private UserService userService;
+
     @Test
-    public void testGetAllItems() throws Exception {
-        List<ItemDTO> items = Arrays.asList(
-            new ItemDTO(1L, "Item1", "Desc1"),
-            new ItemDTO(2L, "Item2", "Desc2")
-        );
- 
-        Mockito.when(itemService.getAllItems()).thenReturn(items);
- 
-        mockMvc.perform(get("/api/items/getAllItems"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.size()", is(2)))
-            .andExpect(jsonPath("$[0].name", is("Item1")));
-    }
- 
-    @Test
-    public void testGetItemById() throws Exception {
-        ItemDTO item = new ItemDTO(1L, "Item1", "Desc1");
- 
-        Mockito.when(itemService.getItemById(1L)).thenReturn(item);
- 
-        mockMvc.perform(get("/api/items/1"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.name", is("Item1")));
-    }
- 
-    @Test
-    public void testCreateItem() throws Exception {
-        ItemDTO item = new ItemDTO(null, "NewItem", "NewDesc");
-        ItemDTO savedItem = new ItemDTO(3L, "NewItem", "NewDesc");
- 
-        Mockito.when(itemService.createItem(Mockito.any(ItemDTO.class))).thenReturn(savedItem);
- 
-        mockMvc.perform(post("/api/items/saveItem")
+    void testRegisterUser() throws Exception {
+        UserRegistrationDTO request = new UserRegistrationDTO();
+        request.setUsername("testuser");
+        request.setEmail("test@mail.com");
+        request.setPassword("password");
+
+        UserResponseDTO response = new UserResponseDTO();
+        response.setId(1L);
+        response.setUsername("testuser");
+        response.setEmail("test@mail.com");
+
+        Mockito.when(userService.registerUser(Mockito.any(UserRegistrationDTO.class)))
+                .thenReturn(response);
+
+        mockMvc.perform(post("/api/users/register")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(item)))
-            .andExpect(status().isCreated())
-            .andExpect(jsonPath("$.id", is(3)));
-    }
- 
-    @Test
-    public void testUpdateItem() throws Exception {
-        ItemDTO existingItem = new ItemDTO(1L, "OldName", "OldDesc");
-        ItemDTO updatedItem = new ItemDTO(1L, "NewName", "NewDesc");
- 
-        Mockito.when(itemService.getItemById(1L)).thenReturn(existingItem);
-        Mockito.when(itemService.createItem(Mockito.any(ItemDTO.class))).thenReturn(updatedItem);
- 
-        mockMvc.perform(put("/api/items/1")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(updatedItem)))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.name", is("NewName")));
-    }
- 
-    @Test
-    public void testDeleteItem() throws Exception {
-        Mockito.doNothing().when(itemService).deleteItem(1L);
- 
-        mockMvc.perform(delete("/api/items/1"))
-            .andExpect(status().isNoContent());
+                .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.username", is("testuser")));
     }
 }
 
 
-package com.training.springrest.service;
- 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
- 
-import java.util.List;
-import java.util.Optional;
- 
+
+package com.cognizant.smarthotelbooking.service;
+
+import com.cognizant.smarthotelbooking.dao.UserRepository;
+import com.cognizant.smarthotelbooking.dto.requestdto.UserRegistrationDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.UserResponseDTO;
+import com.cognizant.smarthotelbooking.exception.ResourceNotFoundException;
+import com.cognizant.smarthotelbooking.model.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
- 
-import com.training.springrest.dao.ItemRepository;
-import com.training.springrest.dto.ItemDTO;
-import com.training.springrest.exception.ResourceNotFoundException;
-import com.training.springrest.model.Item;
- 
-@ExtendWith(MockitoExtension.class)
-public class ItemServiceTest {
-	
-	@InjectMocks
-	private ItemService itemService;
- 
-	@Mock
-	private ItemRepository itemRepository;
-	@Mock
-	private ModelMapper modelMapper;
- 
-	@Test
-	void testGetAllItems() {
-		// Arrange
-		Item item1 = new Item(1L, "Item A", "desc1");
-		Item item2 = new Item(2L, "Item B", "desc2");
-		List<Item> itemList = List.of(item1, item2);
- 
-		ItemDTO itemDTO1 = new ItemDTO(1L, "Item A", "desc1");
-		ItemDTO itemDTO2 = new ItemDTO(2L, "Item B", "desc2");
- 
-		when(itemRepository.findAll()).thenReturn(itemList);
-		when(modelMapper.map(item1, ItemDTO.class)).thenReturn(itemDTO1);
-		when(modelMapper.map(item2, ItemDTO.class)).thenReturn(itemDTO2);
- 
-		List<ItemDTO> result = itemService.getAllItems();
- 
-		assertThat(result).isNotNull();
-		assertThat(result.size()).isGreaterThan(1);
-	}
-	@Test
-    void testGetItemById_ValidId() {
-        Item item = new Item(1L, "Item A", "Description A");
-        ItemDTO itemDTO = new ItemDTO(1L, "Item A", "Description A");
- 
-        when(itemRepository.findById(1L)).thenReturn(Optional.of(item));
-        when(modelMapper.map(item, ItemDTO.class)).thenReturn(itemDTO);
- 
-        ItemDTO result = itemService.getItemById(1L);
- 
-       assertThat(result).isNotNull();
-       
-    }
- 
-    @Test
-    void testGetItemById_InvalidId() {
-        when(itemRepository.findById(99L)).thenReturn(Optional.empty());
- 
-        assertThrows(ResourceNotFoundException.class, () -> itemService.getItemById(99L));
-    }
- 
-    // Test for createItem
-    @Test
-    void testCreateItem() {
-        ItemDTO itemDTO = new ItemDTO(null, "New Item", "New Description");
-        Item item = new Item(null, "New Item", "New Description");
-        Item savedItem = new Item(1L, "New Item", "New Description");
-        ItemDTO savedDTO = new ItemDTO(1L, "New Item", "New Description");
- 
-        when(modelMapper.map(itemDTO, Item.class)).thenReturn(item);
-        when(itemRepository.save(item)).thenReturn(savedItem);
-        when(modelMapper.map(savedItem, ItemDTO.class)).thenReturn(savedDTO);
- 
-        ItemDTO result = itemService.createItem(itemDTO);
- 
-       assertThat(result).isNotNull();
-       
-    }
- 
-    // Test for updateItem
-    @Test
-    void testUpdateItem() {
-        Item existingItem = new Item(1L, "Old Name", "Old Description");
-        Item updatedInput = new Item(null, "Updated Name", "Updated Description");
-        Item updatedItem = new Item(1L, "Updated Name", "Updated Description");
- 
-        when(itemRepository.findById(1L)).thenReturn(Optional.of(existingItem));
-        when(itemRepository.save(existingItem)).thenReturn(updatedItem);
- 
-        Item result = itemService.updateItem(1L, updatedInput);
-        
-        assertThat(result.getName()).isEqualTo("Updated Name");
-		assertThat(result.getDescription()).isEqualTo("Updated Description");
-        
-    }
- 
-    // Test for deleteItem
-    @Test
-    void testDeleteItem() {
-        Long itemId = 1L;
- 
-        doNothing().when(itemRepository).deleteById(itemId);
- 
-        itemService.deleteItem(itemId);
- 
-        verify(itemRepository, times(1)).deleteById(itemId);
-    }
- 
-}
- 
 
-package com.training.springrest.service;
- 
-import java.util.List;
-import java.util.stream.Collectors;
- 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
- 
-import com.training.springrest.dao.ItemRepository;
-import com.training.springrest.dao.ItemSummary;
-import com.training.springrest.dto.ItemDTO;
-import com.training.springrest.exception.ResourceNotFoundException;
-import com.training.springrest.model.Item;
- 
-@Service
-public class ItemService {
- 
-	@Autowired ItemRepository itemRepository;
-	@Autowired
-	private ModelMapper modelMapper;
- 
-		 public List<ItemDTO> getAllItems() {
-		 List<Item> items = itemRepository.findAll();
-		 return items.stream()
-		         .map(item -> modelMapper.map(item, ItemDTO.class))
-		         .collect(Collectors.toList());
-		 }
- 
- 
-	public ItemDTO getItemById(Long id) {
-		return itemRepository.findById(id).map(item->modelMapper.map(item, ItemDTO.class)).
-				orElseThrow(()->new ResourceNotFoundException
-						("Invalid Item id "+ id + " not found"));
-	}
-	
-		public ItemDTO createItem(ItemDTO itemDTO) {
-					
-		 Item item = modelMapper.map(itemDTO, Item.class);
-		 Item savedItem = itemRepository.save(item);
-		 return modelMapper.map(savedItem, ItemDTO.class);
- 
-		}
- 
-	public Item updateItem(Long id, Item item) {
-		Item result=itemRepository.findById(id).get();
-		result.setName(item.getName());
-		result.setDescription(item.getDescription());
-		Item updatedItem = itemRepository.save(result);
-		return updatedItem;
-	}
- 
-	public void deleteItem(Long id) {
-		itemRepository.deleteById(id);
-		
-	}
-	
-	public List<ItemSummary> findByNameAndDescription(String name,String description)
-	{
-		return itemRepository.findByNameAndDescription(name, description);
-	}
- 
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+public class UserServiceImplTest {
+
+    @InjectMocks private UserServiceImpl userService;
+    @Mock private UserRepository userRepository;
+    @Mock private ModelMapper modelMapper;
+
+    @Test
+    void testRegisterUser() {
+        UserRegistrationDTO dto = new UserRegistrationDTO();
+        dto.setUsername("testuser");
+        dto.setEmail("test@mail.com");
+        dto.setPassword("password");
+
+        User user = new User();
+        user.setUsername("testuser");
+        user.setEmail("test@mail.com");
+        user.setPassword("password");
+
+        User savedUser = new User();
+        savedUser.setId(1L);
+        savedUser.setUsername("testuser");
+        savedUser.setEmail("test@mail.com");
+
+        UserResponseDTO responseDTO = new UserResponseDTO();
+        responseDTO.setId(1L);
+        responseDTO.setUsername("testuser");
+        responseDTO.setEmail("test@mail.com");
+
+        when(modelMapper.map(dto, User.class)).thenReturn(user);
+        when(userRepository.save(user)).thenReturn(savedUser);
+        when(modelMapper.map(savedUser, UserResponseDTO.class)).thenReturn(responseDTO);
+
+        UserResponseDTO result = userService.registerUser(dto);
+        assertThat(result).isNotNull();
+        assertThat(result.getUsername()).isEqualTo("testuser");
+    }
+
+    @Test
+    void testGetUserById_Valid() {
+        User user = new User();
+        user.setId(1L);
+        user.setUsername("testuser");
+
+        UserResponseDTO dto = new UserResponseDTO();
+        dto.setId(1L);
+        dto.setUsername("testuser");
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(modelMapper.map(user, UserResponseDTO.class)).thenReturn(dto);
+
+        UserResponseDTO result = userService.getUserById(1L);
+        assertThat(result).isNotNull();
+        assertThat(result.getId()).isEqualTo(1L);
+    }
+
+    @Test
+    void testGetUserById_Invalid() {
+        when(userRepository.findById(99L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> userService.getUserById(99L));
+    }
 }
- 
- 
+
+
+
+
+
+package com.cognizant.smarthotelbooking.controller;
+
+import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
+import com.cognizant.smarthotelbooking.service.HotelService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.hamcrest.Matchers.is;
+
+@WebMvcTest(HotelController.class)
+public class HotelControllerTest {
+
+    @Autowired private MockMvc mockMvc;
+    @Autowired private ObjectMapper objectMapper;
+    @MockBean private HotelService hotelService;
+
+    @Test
+    void testCreateHotel() throws Exception {
+        HotelRequestDTO request = new HotelRequestDTO();
+        request.setName("Taj Hotel");
+        request.setLocation("Mumbai");
+
+        HotelResponseDTO response = new HotelResponseDTO();
+        response.setId(1L);
+        response.setName("Taj Hotel");
+        response.setLocation("Mumbai");
+
+        Mockito.when(hotelService.createHotel(Mockito.any(HotelRequestDTO.class)))
+                .thenReturn(response);
+
+        mockMvc.perform(post("/api/hotels")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is("Taj Hotel")));
+    }
+}
+
+
+
+
+package com.cognizant.smarthotelbooking.service;
+
+import com.cognizant.smarthotelbooking.dao.HotelRepository;
+import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
+import com.cognizant.smarthotelbooking.model.Hotel;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+public class HotelServiceImplTest {
+
+    @InjectMocks private HotelServiceImpl hotelService;
+    @Mock private HotelRepository hotelRepository;
+    @Mock private ModelMapper modelMapper;
+
+    @Test
+    void testCreateHotel() {
+        HotelRequestDTO dto = new HotelRequestDTO();
+        dto.setName("Taj Hotel");
+        dto.setLocation("Mumbai");
+
+        Hotel hotel = new Hotel();
+        hotel.setName("Taj Hotel");
+        hotel.setLocation("Mumbai");
+
+        Hotel savedHotel = new Hotel();
+        savedHotel.setId(1L);
+        savedHotel.setName("Taj Hotel");
+        savedHotel.setLocation("Mumbai");
+
+        HotelResponseDTO responseDTO = new HotelResponseDTO();
+        responseDTO.setId(1L);
+        responseDTO.setName("Taj Hotel");
+        responseDTO.setLocation("Mumbai");
+
+        when(modelMapper.map(dto, Hotel.class)).thenReturn(hotel);
+        when(hotelRepository.save(hotel)).thenReturn(savedHotel);
+        when(modelMapper.map(savedHotel, HotelResponseDTO.class)).thenReturn(responseDTO);
+
+        HotelResponseDTO result = hotelService.createHotel(dto);
+        assertThat(result).isNotNull();
+        assertThat(result.getName()).isEqualTo("Taj Hotel");
+    }
+}
+
+
+package com.cognizant.smarthotelbooking.controller;
+
+import com.cognizant.smarthotelbooking.dto.requestdto.RoomRequestDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.RoomResponseDTO;
+import com.cognizant.smarthotelbooking.service.RoomService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.hamcrest.Matchers.is;
+
+@WebMvcTest(RoomController.class)
+public class RoomControllerTest {
+
+    @Autowired private MockMvc mockMvc;
+    @Autowired private ObjectMapper objectMapper;
+    @MockBean private RoomService roomService;
+
+    @Test
+    void testAddRoom() throws Exception {
+        RoomRequestDTO request = new RoomRequestDTO();
+        request.setRoomNumber("101");
+        request.setType("Deluxe");
+
+        RoomResponseDTO response = new RoomResponseDTO();
+        response.setId(1L);
+        response.setRoomNumber("101");
+        response.setType("Deluxe");
+
+        Mockito.when(roomService.addRoom(Mockito.any(RoomRequestDTO.class)))
+                .thenReturn(response);
+
+        mockMvc.perform(post("/api/rooms")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.roomNumber", is("101")));
+    }
+}
+
+
+
+
+package com.cognizant.smarthotelbooking.service;
+
+import com.cognizant.smarthotelbooking.dao.RoomRepository;
+import com.cognizant.smarthotelbooking.dto.requestdto.RoomRequestDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.RoomResponseDTO;
+import com.cognizant.smarthotelbooking.model.Room;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+public class RoomServiceImplTest {
+
+    @InjectMocks private RoomServiceImpl roomService;
+    @Mock private RoomRepository roomRepository;
+    @Mock private ModelMapper modelMapper;
+
+    @Test
+    void testAddRoom() {
+        RoomRequestDTO dto = new RoomRequestDTO();
+        dto.setRoomNumber("101");
+        dto.setType("Deluxe");
+
+        Room room = new Room();
+        room.setRoomNumber("101");
+        room.setType("Deluxe");
+
+        Room savedRoom = new Room();
+        savedRoom.setId(1L);
+        savedRoom.setRoomNumber("101");
+        savedRoom.setType("Deluxe");
+
+        RoomResponseDTO responseDTO = new RoomResponseDTO();
+        responseDTO.setId(1L);
+        responseDTO.setRoomNumber("101");
+        responseDTO.setType("Deluxe");
+
+        when(modelMapper.map(dto, Room.class)).thenReturn(room);
+        when(roomRepository.save(room)).thenReturn(savedRoom);
+        when(modelMapper.map(savedRoom, RoomResponseDTO.class)).thenReturn(responseDTO);
+
+        RoomResponseDTO result = roomService.addRoom(dto);
+        assertThat(result).isNotNull();
+        assertThat(result.getRoomNumber()).isEqualTo("101");
+    }
+}
 
 

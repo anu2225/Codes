@@ -1,43 +1,13 @@
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> npm install
-
-up to date, audited 7 packages in 2s
-
-found 0 vulnerabilities
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> npm start
-npm error Missing script: "start"
-npm error
-npm error Did you mean one of these?
-npm error   npm star # Mark your favorite packages
-npm error   npm stars # View packages marked as favorites
-npm error
-npm error To see a list of scripts, run:
-npm error   npm run
-npm error A complete log of this run can be found in: C:\Users\2440835\AppData\Local\npm-cache\_logs\2025-10-26T13_06_46_947Z-debug-0.log
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> ng serve
-Error: This command is not available when running the Angular CLI outside a workspace.
 PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> cd .\frontend\
 PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend> cd .\SmartHotelBookingSystem\
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve
-Node packages may not be installed. Try installing with 'npm install'.
-Error: Could not find the '@angular/build:dev-server' builder's node package.
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> npm install
-npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
-npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
-npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng start
+Error: Unknown argument: start
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> npm start
 
-added 725 packages, and audited 726 packages in 32s
+> smart-hotel-booking-system@0.0.0 start
+> ng serve
 
-136 packages are looking for funding
-  run `npm fund` for details
-
-2 moderate severity vulnerabilities
-
-To address all issues, run:
-  npm audit fix
-
-Run `npm audit` for details.
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve   
-Application bundle generation failed. [11.811 seconds] - 2025-10-26T13:09:26.625Z
+Application bundle generation failed. [2.945 seconds] - 2025-10-26T13:13:44.498Z
 
 ▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
 
@@ -109,11 +79,53 @@ Application bundle generation failed. [11.811 seconds] - 2025-10-26T13:09:26.625
         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/create-hotel/hotel.ts:7:20:
+      7 │ import * as i2 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/filter-hotel/hotel.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/get-hotel-by-id/hotel.ts:9:20:
+      9 │ import * as i1 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 ▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
 
     src/app/features/hotel/get-hotel-by-id/hotel.ts:11:20:
       11 │ import * as i3 from "../../../core/services/authservice";
          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/get-hotel-by-manager/get-hotel-by-manager.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/search-hotel/hotel.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/update-hotel/hotel.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/hotelservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
@@ -135,6 +147,13 @@ Application bundle generation failed. [11.811 seconds] - 2025-10-26T13:09:26.625
     src/app/features/payment/create-payment/payment.ts:10:20:
       10 │ import * as i4 from "../../../core/services/loyaltyservice";
          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/paymentService.ts" instead of "src/app/core/services/paymentservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/payment/get-all-payments/payment.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/paymentservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
@@ -165,10 +184,59 @@ Application bundle generation failed. [11.811 seconds] - 2025-10-26T13:09:26.625
         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/create-room/room.ts:7:20:
+      7 │ import * as i2 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/delete-room/room.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/filter-room/room.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/get-all-rooms/room.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/get-room-by-hotel-id/room.ts:6:20:
+      6 │ import * as i1 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 ▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
 
     src/app/features/room/get-room-by-hotel-id/room.ts:8:20:
       8 │ import * as i3 from "../../../core/services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/get-room-by-id/room.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/roomservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/update-room/room.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/roomservice";
         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -214,8 +282,8 @@ X [ERROR] Cannot destructure property 'pos' of 'file.referencedFiles[index]' as 
     at C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130028:15
     at Array.forEach (<anonymous>)
     at Object.getCombinedDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130024:78)
-    at getProgramDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:127993:57)
-    at getSemanticDiagnosticsForFile (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:128024:7)
+    at Object.getOptionsDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:128351:26)
+    at Object.getOptionsDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:132165:64)
 
   This error came from the "onStart" callback registered here:
 

@@ -1,348 +1,230 @@
-package com.cognizant.smarthotelbooking.controller;
-
-import com.cognizant.smarthotelbooking.dto.requestdto.UserRegistrationDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.UserResponseDTO;
-import com.cognizant.smarthotelbooking.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.hamcrest.Matchers.is;
-
-@WebMvcTest(UserController.class)
-public class UserControllerTest {
-
-    @Autowired private MockMvc mockMvc;
-    @Autowired private ObjectMapper objectMapper;
-    @MockBean private UserService userService;
-
-    @Test
-    void testRegisterUser() throws Exception {
-        UserRegistrationDTO request = new UserRegistrationDTO();
-        request.setUsername("testuser");
-        request.setEmail("test@mail.com");
-        request.setPassword("password");
-
-        UserResponseDTO response = new UserResponseDTO();
-        response.setId(1L);
-        response.setUsername("testuser");
-        response.setEmail("test@mail.com");
-
-        Mockito.when(userService.registerUser(Mockito.any(UserRegistrationDTO.class)))
-                .thenReturn(response);
-
-        mockMvc.perform(post("/api/users/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username", is("testuser")));
-    }
-}
-
-
-
-package com.cognizant.smarthotelbooking.service;
-
-import com.cognizant.smarthotelbooking.dao.UserRepository;
-import com.cognizant.smarthotelbooking.dto.requestdto.UserRegistrationDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.UserResponseDTO;
-import com.cognizant.smarthotelbooking.exception.ResourceNotFoundException;
-import com.cognizant.smarthotelbooking.model.User;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
-public class UserServiceImplTest {
-
-    @InjectMocks private UserServiceImpl userService;
-    @Mock private UserRepository userRepository;
-    @Mock private ModelMapper modelMapper;
-
-    @Test
-    void testRegisterUser() {
-        UserRegistrationDTO dto = new UserRegistrationDTO();
-        dto.setUsername("testuser");
-        dto.setEmail("test@mail.com");
-        dto.setPassword("password");
-
-        User user = new User();
-        user.setUsername("testuser");
-        user.setEmail("test@mail.com");
-        user.setPassword("password");
-
-        User savedUser = new User();
-        savedUser.setId(1L);
-        savedUser.setUsername("testuser");
-        savedUser.setEmail("test@mail.com");
-
-        UserResponseDTO responseDTO = new UserResponseDTO();
-        responseDTO.setId(1L);
-        responseDTO.setUsername("testuser");
-        responseDTO.setEmail("test@mail.com");
-
-        when(modelMapper.map(dto, User.class)).thenReturn(user);
-        when(userRepository.save(user)).thenReturn(savedUser);
-        when(modelMapper.map(savedUser, UserResponseDTO.class)).thenReturn(responseDTO);
-
-        UserResponseDTO result = userService.registerUser(dto);
-        assertThat(result).isNotNull();
-        assertThat(result.getUsername()).isEqualTo("testuser");
-    }
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> npm install
 
-    @Test
-    void testGetUserById_Valid() {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("testuser");
-
-        UserResponseDTO dto = new UserResponseDTO();
-        dto.setId(1L);
-        dto.setUsername("testuser");
-
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
-        when(modelMapper.map(user, UserResponseDTO.class)).thenReturn(dto);
-
-        UserResponseDTO result = userService.getUserById(1L);
-        assertThat(result).isNotNull();
-        assertThat(result.getId()).isEqualTo(1L);
-    }
-
-    @Test
-    void testGetUserById_Invalid() {
-        when(userRepository.findById(99L)).thenReturn(Optional.empty());
-        assertThrows(ResourceNotFoundException.class, () -> userService.getUserById(99L));
-    }
-}
-
-
-
-
-
-package com.cognizant.smarthotelbooking.controller;
-
-import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
-import com.cognizant.smarthotelbooking.service.HotelService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.hamcrest.Matchers.is;
-
-@WebMvcTest(HotelController.class)
-public class HotelControllerTest {
-
-    @Autowired private MockMvc mockMvc;
-    @Autowired private ObjectMapper objectMapper;
-    @MockBean private HotelService hotelService;
-
-    @Test
-    void testCreateHotel() throws Exception {
-        HotelRequestDTO request = new HotelRequestDTO();
-        request.setName("Taj Hotel");
-        request.setLocation("Mumbai");
-
-        HotelResponseDTO response = new HotelResponseDTO();
-        response.setId(1L);
-        response.setName("Taj Hotel");
-        response.setLocation("Mumbai");
-
-        Mockito.when(hotelService.createHotel(Mockito.any(HotelRequestDTO.class)))
-                .thenReturn(response);
-
-        mockMvc.perform(post("/api/hotels")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is("Taj Hotel")));
-    }
-}
-
-
-
-
-package com.cognizant.smarthotelbooking.service;
-
-import com.cognizant.smarthotelbooking.dao.HotelRepository;
-import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
-import com.cognizant.smarthotelbooking.model.Hotel;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
-public class HotelServiceImplTest {
-
-    @InjectMocks private HotelServiceImpl hotelService;
-    @Mock private HotelRepository hotelRepository;
-    @Mock private ModelMapper modelMapper;
-
-    @Test
-    void testCreateHotel() {
-        HotelRequestDTO dto = new HotelRequestDTO();
-        dto.setName("Taj Hotel");
-        dto.setLocation("Mumbai");
-
-        Hotel hotel = new Hotel();
-        hotel.setName("Taj Hotel");
-        hotel.setLocation("Mumbai");
-
-        Hotel savedHotel = new Hotel();
-        savedHotel.setId(1L);
-        savedHotel.setName("Taj Hotel");
-        savedHotel.setLocation("Mumbai");
-
-        HotelResponseDTO responseDTO = new HotelResponseDTO();
-        responseDTO.setId(1L);
-        responseDTO.setName("Taj Hotel");
-        responseDTO.setLocation("Mumbai");
-
-        when(modelMapper.map(dto, Hotel.class)).thenReturn(hotel);
-        when(hotelRepository.save(hotel)).thenReturn(savedHotel);
-        when(modelMapper.map(savedHotel, HotelResponseDTO.class)).thenReturn(responseDTO);
-
-        HotelResponseDTO result = hotelService.createHotel(dto);
-        assertThat(result).isNotNull();
-        assertThat(result.getName()).isEqualTo("Taj Hotel");
-    }
-}
-
-
-package com.cognizant.smarthotelbooking.controller;
-
-import com.cognizant.smarthotelbooking.dto.requestdto.RoomRequestDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.RoomResponseDTO;
-import com.cognizant.smarthotelbooking.service.RoomService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.hamcrest.Matchers.is;
-
-@WebMvcTest(RoomController.class)
-public class RoomControllerTest {
-
-    @Autowired private MockMvc mockMvc;
-    @Autowired private ObjectMapper objectMapper;
-    @MockBean private RoomService roomService;
-
-    @Test
-    void testAddRoom() throws Exception {
-        RoomRequestDTO request = new RoomRequestDTO();
-        request.setRoomNumber("101");
-        request.setType("Deluxe");
-
-        RoomResponseDTO response = new RoomResponseDTO();
-        response.setId(1L);
-        response.setRoomNumber("101");
-        response.setType("Deluxe");
-
-        Mockito.when(roomService.addRoom(Mockito.any(RoomRequestDTO.class)))
-                .thenReturn(response);
-
-        mockMvc.perform(post("/api/rooms")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.roomNumber", is("101")));
-    }
-}
-
-
-
-
-package com.cognizant.smarthotelbooking.service;
-
-import com.cognizant.smarthotelbooking.dao.RoomRepository;
-import com.cognizant.smarthotelbooking.dto.requestdto.RoomRequestDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.RoomResponseDTO;
-import com.cognizant.smarthotelbooking.model.Room;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
-public class RoomServiceImplTest {
-
-    @InjectMocks private RoomServiceImpl roomService;
-    @Mock private RoomRepository roomRepository;
-    @Mock private ModelMapper modelMapper;
-
-    @Test
-    void testAddRoom() {
-        RoomRequestDTO dto = new RoomRequestDTO();
-        dto.setRoomNumber("101");
-        dto.setType("Deluxe");
-
-        Room room = new Room();
-        room.setRoomNumber("101");
-        room.setType("Deluxe");
-
-        Room savedRoom = new Room();
-        savedRoom.setId(1L);
-        savedRoom.setRoomNumber("101");
-        savedRoom.setType("Deluxe");
-
-        RoomResponseDTO responseDTO = new RoomResponseDTO();
-        responseDTO.setId(1L);
-        responseDTO.setRoomNumber("101");
-        responseDTO.setType("Deluxe");
-
-        when(modelMapper.map(dto, Room.class)).thenReturn(room);
-        when(roomRepository.save(room)).thenReturn(savedRoom);
-        when(modelMapper.map(savedRoom, RoomResponseDTO.class)).thenReturn(responseDTO);
-
-        RoomResponseDTO result = roomService.addRoom(dto);
-        assertThat(result).isNotNull();
-        assertThat(result.getRoomNumber()).isEqualTo("101");
-    }
-}
+up to date, audited 7 packages in 2s
 
+found 0 vulnerabilities
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> npm start
+npm error Missing script: "start"
+npm error
+npm error Did you mean one of these?
+npm error   npm star # Mark your favorite packages
+npm error   npm stars # View packages marked as favorites
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\2440835\AppData\Local\npm-cache\_logs\2025-10-26T13_06_46_947Z-debug-0.log
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> ng serve
+Error: This command is not available when running the Angular CLI outside a workspace.
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> cd .\frontend\
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend> cd .\SmartHotelBookingSystem\
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve
+Node packages may not be installed. Try installing with 'npm install'.
+Error: Could not find the '@angular/build:dev-server' builder's node package.
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> npm install
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
 
+added 725 packages, and audited 726 packages in 32s
+
+136 packages are looking for funding
+  run `npm fund` for details
+
+2 moderate severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve   
+Application bundle generation failed. [11.811 seconds] - 2025-10-26T13:09:26.625Z
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/core/guards/admin.guard.ts:4:20:
+      4 │ import * as i1 from "../services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/core/guards/auth.guard.ts:3:20:
+      3 │ import * as i1 from "../services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/core/guards/manager.guard.ts:5:20:
+      5 │ import * as i1 from "../services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/core/interceptors/unauthorized.interceptor.ts:6:20:
+      6 │ import * as i1 from "../services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/auth/login/login.ts:11:20:
+      11 │ import * as i2 from "../../../core/services/authservice";
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/auth/register/register.ts:10:20:
+      10 │ import * as i2 from "../../../core/services/authservice";
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/booking/create-booking/create-booking.ts:10:20:
+      10 │ import * as i1 from "../../../core/services/bookingservice";
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/booking/get-all-bookings/get-all-bookings.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/bookingservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/booking/get-booking-by-id/get-booking-by-id.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/bookingservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/booking/get-booking-by-user/get-booking-by-user.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/bookingservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/hotel/get-hotel-by-id/hotel.ts:11:20:
+      11 │ import * as i3 from "../../../core/services/authservice";
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/loyalty/get-reward-details/get-reward-details.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/loyaltyservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/loyalty/reward-history/reward-history.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/loyaltyservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/payment/create-payment/payment.ts:10:20:
+      10 │ import * as i4 from "../../../core/services/loyaltyservice";
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/reviewservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:7:20:
+      7 │ import * as i3 from "../../../core/services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/review/get-all-reviews-user/get-all-reviews-user.ts:5:20:
+      5 │ import * as i1 from "../../../core/services/reviewservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/review/post-review/post-review.ts:6:20:
+      6 │ import * as i2 from "../../../core/services/reviewservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/room/get-room-by-hotel-id/room.ts:8:20:
+      8 │ import * as i3 from "../../../core/services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/user/get-all-managers/get-all-managers.ts:4:20:
+      4 │ import * as i1 from "../../../core/services/userservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/user/get-all-users/get-all-users.ts:3:20:
+      3 │ import * as i1 from "../../../core/services/userservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/features/user/welcome-user/welcome-user.ts:6:20:
+      6 │ import * as i1 from "../../../core/services/userservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
+
+    src/app/shared/components/navbar/navbar.ts:9:20:
+      9 │ import * as i1 from "../../../core/services/authservice";
+        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Cannot destructure property 'pos' of 'file.referencedFiles[index]' as it is undefined. [plugin angular-compiler]
+
+    node_modules/typescript/lib/typescript.js:126740:9:
+      126740 │       ({ pos, end } = file.referencedFiles[index]);
+             ╵          ^
+
+    at getReferencedFileLocation (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:126740:10)
+    at fileIncludeReasonToDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:133580:31)
+    at processReason (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130143:62)
+    at Array.forEach (<anonymous>)
+    at createDiagnosticExplainingFile (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130095:42)
+    at C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130028:15
+    at Array.forEach (<anonymous>)
+    at Object.getCombinedDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130024:78)
+    at getProgramDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:127993:57)
+    at getSemanticDiagnosticsForFile (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:128024:7)
+
+  This error came from the "onStart" callback registered here:
+
+    node_modules/@angular/build/src/tools/esbuild/angular/compiler-plugin.js:119:18:
+      119 │             build.onStart(async () => {
+          ╵                   ~~~~~~~
+
+    at setup (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@angular\build\src\tools\esbuild\angular\compiler-plugin.js:119:19)
+    at async handlePlugins (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\esbuild\lib\main.js:1185:20)
+
+
+Watch mode enabled. Watching for file changes...

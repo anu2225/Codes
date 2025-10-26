@@ -1,13 +1,5 @@
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem> cd .\frontend\
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend> cd .\SmartHotelBookingSystem\
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng start
-Error: Unknown argument: start
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> npm start
-
-> smart-hotel-booking-system@0.0.0 start
-> ng serve
-
-Application bundle generation failed. [2.945 seconds] - 2025-10-26T13:13:44.498Z
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve
+Application bundle generation failed. [13.482 seconds] - 2025-10-26T13:23:51.782Z
 
 ▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
 

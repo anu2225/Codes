@@ -1,290 +1,113 @@
-PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> ng serve
-Application bundle generation failed. [13.482 seconds] - 2025-10-26T13:23:51.782Z
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/admin.guard.ts:4:20:
-      4 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/auth.guard.ts:3:20:
-      3 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/manager.guard.ts:5:20:
-      5 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/interceptors/unauthorized.interceptor.ts:6:20:
-      6 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/auth/login/login.ts:11:20:
-      11 │ import * as i2 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/auth/register/register.ts:10:20:
-      10 │ import * as i2 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/create-booking/create-booking.ts:10:20:
-      10 │ import * as i1 from "../../../core/services/bookingservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-all-bookings/get-all-bookings.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-booking-by-id/get-booking-by-id.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-booking-by-user/get-booking-by-user.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/create-hotel/hotel.ts:7:20:
-      7 │ import * as i2 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/filter-hotel/hotel.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-id/hotel.ts:9:20:
-      9 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-id/hotel.ts:11:20:
-      11 │ import * as i3 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-manager/get-hotel-by-manager.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/search-hotel/hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/update-hotel/hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/loyalty/get-reward-details/get-reward-details.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/loyaltyservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/loyalty/reward-history/reward-history.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/loyaltyservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/payment/create-payment/payment.ts:10:20:
-      10 │ import * as i4 from "../../../core/services/loyaltyservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/paymentService.ts" instead of "src/app/core/services/paymentservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/payment/get-all-payments/payment.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/paymentservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:7:20:
-      7 │ import * as i3 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-user/get-all-reviews-user.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/post-review/post-review.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/create-room/room.ts:7:20:
-      7 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/delete-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/filter-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-all-rooms/room.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-hotel-id/room.ts:6:20:
-      6 │ import * as i1 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-hotel-id/room.ts:8:20:
-      8 │ import * as i3 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-id/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/update-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/get-all-managers/get-all-managers.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/get-all-users/get-all-users.ts:3:20:
-      3 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/welcome-user/welcome-user.ts:6:20:
-      6 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/shared/components/navbar/navbar.ts:9:20:
-      9 │ import * as i1 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-X [ERROR] Cannot destructure property 'pos' of 'file.referencedFiles[index]' as it is undefined. [plugin angular-compiler]
-
-    node_modules/typescript/lib/typescript.js:126740:9:
-      126740 │       ({ pos, end } = file.referencedFiles[index]);
-             ╵          ^
-
-    at getReferencedFileLocation (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:126740:10)
-    at fileIncludeReasonToDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:133580:31)
-    at processReason (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130143:62)
-    at Array.forEach (<anonymous>)
-    at createDiagnosticExplainingFile (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130095:42)
-    at C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130028:15
-    at Array.forEach (<anonymous>)
-    at Object.getCombinedDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:130024:78)
-    at Object.getOptionsDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:128351:26)
-    at Object.getOptionsDiagnostics (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\typescript\lib\typescript.js:132165:64)
-
-  This error came from the "onStart" callback registered here:
-
-    node_modules/@angular/build/src/tools/esbuild/angular/compiler-plugin.js:119:18:
-      119 │             build.onStart(async () => {
-          ╵                   ~~~~~~~
-
-    at setup (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@angular\build\src\tools\esbuild\angular\compiler-plugin.js:119:19)
-    at async handlePlugins (C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\esbuild\lib\main.js:1185:20)
-
-
-Watch mode enabled. Watching for file changes...
+PS C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem> Remove-Item -Recurse -Force node_modules, package-lock.json
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate\address-form\files\__path__\__name@dasherize@if-flat__\__name@dasherize__.component.__style__.templ
+ate: Could not find a part of the path '__name@dasherize__.component.__style__.template'.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (__name@dasheriz...tyle__.template:FileInfo) [Remove-Item], DirectoryNotFoundException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate\address-form\files\__path__\__name@dasherize@if-flat__: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (__name@dasherize@if-flat__:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate\address-form\files\__path__: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (__path__:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate\address-form\files: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (files:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate\address-form: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (address-form:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics\ng-generate: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (ng-generate:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@angular\material\schematics: The directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (schematics:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@angular\material: The       
+directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (material:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@angular: The directory is   
+not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (@angular:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@esbuild\win32-x64\esbuild.exe: Access to the path 'esbuild.exe' is denied.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (esbuild.exe:FileInfo) [Remove-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@esbuild\win32-x64: The      
+directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (win32-x64:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@esbuild: The directory is   
+not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (@esbuild:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_mod
+ules\@lmdb\lmdb-win32-x64\node.napi.node: Access to the path 'node.napi.node' is denied.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (node.napi.node:FileInfo) [Remove-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@lmdb\lmdb-win32-x64: The    
+directory is not empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (lmdb-win32-x64:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot remove item 
+C:\Users\2440835\Documents\Project\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem\node_modules\@lmdb: The directory is not  
+empty.
+At line:1 char:1
++ Remove-Item -Recurse -Force node_modules, package-lock.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (@lmdb:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand

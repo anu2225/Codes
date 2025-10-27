@@ -1,138 +1,82 @@
-import { Component, OnInit } from '@angular/core';
-import { HotelService } from '../../../core/services/hotelservice';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+package com.cognizant.smarthotelbooking.controller;
 
-@Component({
-  selector: 'app-get-hotel-by-manager',
-  standalone: true,
-  imports: [CommonModule, MatIconModule],
-  templateUrl: './get-hotel-by-manager.html',
-  styleUrl: './get-hotel-by-manager.css'
-})
-export class GetHotelByManager implements OnInit {
+import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
+import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
+import com.cognizant.smarthotelbooking.service.HotelService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-  hotels: any[] = [];
-  errorMessage = '';
-  deleteMessage:string = '';
+import java.net.URI;
+import java.util.List;
 
- 
-  constructor(private hotelService: HotelService, private router: Router) {}
+@CrossOrigin("http://localhost:4200")
+@RestController
+@RequestMapping("/api/hotels")
+@RequiredArgsConstructor
+@Slf4j
+public class HotelController {
 
-    
+    private final HotelService hotelService;
 
-  ngOnInit(): void {
-      console.log("This is calling via ngOnInit");
-      this.getHotels();
-  }
+    @PreAuthorize("hasRole('MANAGER')")
+    @PostMapping
+    public ResponseEntity<HotelResponseDTO> createHotel(@RequestBody HotelRequestDTO dto) {
+        // 1. Create the hotel and get the response DTO
+        log.info("Creating Hotel {}", dto.getName());
+        HotelResponseDTO createdHotel = hotelService.createHotel(dto);
 
+        // 2. Create the URI for the new resource
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(createdHotel.getHotelId())
+                .toUri();
 
-  getHotels() {
-    this.hotelService.getHotelByManager().subscribe({
-      next: (data:any[]) => {
-        this.hotels = data;
-        this.errorMessage = '';
-        console.log("THis is calling");
-        console.log(this.hotels);
-      },
-      error: (err) => {
-        this.hotels = [];
-        this.errorMessage = 'Hotel not found or unauthorized!';
-        console.error(err);
-      }
-    });
-  }
-
-  splitAmenities(amenities: string | null | undefined): string[] {
-    return (amenities || '')
-      .split(',')
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .slice(0, 6); // cap to 6 chips for a tidy layout
-  }
-
-  viewHotel(id:number) {
-    this.router.navigate(["/hotel",id]);
-  }
-
-  deleteHotel(hotelId:number) {
-    const confirmed = confirm('Are you sure you want to delete this hotel?');
-    if(confirmed) {
-      this.hotelService.deleteHotel(hotelId).subscribe({
-      next: (data) => {
-        this.deleteMessage = data;
-        this.getHotels();
-      },
-      error: (err) => {
-        console.error(err);
-        this.errorMessage = err;
-      }
-    })
+        // 3. Return a 201 Created status with the location header
+        return ResponseEntity.created(location).body(createdHotel);
     }
-    
-  }
 
-  updateHotel(hotelId: number) {
-    this.router.navigate([`/update-hotel/${hotelId}`]);
-  }
+    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
+    @GetMapping
+    public ResponseEntity<List<HotelResponseDTO>> getAllHotels() {
+        log.info("Fetching all hotels");
+        return ResponseEntity.ok(hotelService.getAllHotels());
+    }
 
-}
+    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
+    @GetMapping("/{id}")
+    public ResponseEntity<HotelResponseDTO> getHotelById(@PathVariable Long id) {
+        log.info("Getting hotel with hotelId {}", id);
+        return ResponseEntity.ok(hotelService.getHotelById(id));
+    }
 
+    @PreAuthorize("hasRole('MANAGER')")
+    @PutMapping("/{id}")
+    public ResponseEntity<HotelResponseDTO> updateHotelById(@PathVariable Long id, @RequestBody HotelRequestDTO dto) {
+        return ResponseEntity.ok(hotelService.updateHotel(id, dto));
+    }
 
+    @PreAuthorize("hasRole('MANAGER')")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteHotel(@PathVariable Long id) {
+        hotelService.deleteHotel(id);
+        return ResponseEntity.ok("Hotel deleted");
+    }
 
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { from, Observable } from 'rxjs';
-import { HttpParams}from'@angular/common/http';
+    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
+    @GetMapping("/search")
+    public ResponseEntity<List<HotelResponseDTO>> searchByLocation(@RequestParam String location) {
+        log.info("Fetching Hotel from location {}", location);
+        return ResponseEntity.ok(hotelService.searchByLocation(location));
+    }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class HotelService {
-  private apiUrl = 'http://localhost:8080/api/hotels';
-
-  constructor(private http: HttpClient) {}
-
-  getHotelList(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
-  }
-
-  getHotelByManager(): Observable<any> {
-     return this.http.get(`${this.apiUrl}/manager`);
-  }
-
-  // getHotelById(id: number): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/${id}`);
-  // }
-
-  createHotel(hotelData: any, token: string): Observable<any> {
-    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
-    return this.http.post(this.apiUrl, hotelData, { headers });
-  }
-  searchHotels(name: string): Observable<any> {
-    const params = new HttpParams().set('location', name);
-    return this.http.get(`${this.apiUrl}/search`, { params });
-  }
-
-
-  filterHotelsByRating(minRating: number): Observable<any> {
-    // Important: ensure proper param name "minRating" and query string format
-    const params = new HttpParams().set('rating', minRating.toString());
-    return this.http.get(`${this.apiUrl}/filter`, { params });
-  }
-
-
- deleteHotel(id: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/${id}`, {responseType: 'text' });
-}
-
-
-  getHotelById(id: number): Observable<any> {
-  return this.http.get<any>(`${this.apiUrl}/${id}`);
-}
-updateHotel(id: number, hotelData: any): Observable<any> {
-  return this.http.put<any>(`${this.apiUrl}/${id}`, hotelData);
-}
-
+    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
+    @GetMapping("/filter")
+    public ResponseEntity<List<HotelResponseDTO>> filterByRating(@RequestParam Double rating) {
+        return ResponseEntity.ok(hotelService.filterByRating(rating));
+    }
 }

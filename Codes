@@ -1,82 +1,39 @@
-package com.cognizant.smarthotelbooking.controller;
+Microservices
+------------------
+1)What is monolithic and microservices architecture?
+2)What are the challenges you may face in microservices architecture?
+3)What is client side discovery and server side discovery?
+4)What is Eureka server?
+5)What are the different methods to implement microservices communication?
+ RestTemplate,FeignClient,Webclient
+6)What is the role of API gateway and loadbalancer in microservices architecture?
+7)What are the fault tolerance mechanisms that can be implemented in microservices?
+  Hystrix(deprecated),Resilience(circuitbreaker,retry)
+8)What is Spring cloud config server? (or) How will you externalize the configuration in microservices?
+9)How can you monitor microservices?
+  Refer -Spring boot actuator
+10) What is the use of the tools prometheus and grafana?
+11)OAuth and SSO (single sign on) in microservices?
+12)What is an edge service in microservices architecture?
+13)Spring security for microservices
 
-import com.cognizant.smarthotelbooking.dto.requestdto.HotelRequestDTO;
-import com.cognizant.smarthotelbooking.dto.responsedto.HotelResponseDTO;
-import com.cognizant.smarthotelbooking.service.HotelService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+Docker
+----------
+1)Difference between containerization and virtualization
+2)Docker is used for build,ship and run. Explain.
+3)Learn basic docker commands
+4)What is docker-compose?
+5)docker network
+6)Use of Dockerfile
 
-import java.net.URI;
-import java.util.List;
+GCP
+-------
+1)What is cloud computing and advantages?
+2)Cloud service models - IaaS,SaaS,Paas
+3)Cloud deployment models -private,public,Hybrid,community
+4)GCP Infrastructure - Zone, Region
+5)Services of GCP (Compute, Storage , IAM, Networking etc)
+6)Load balancers, API gateway
+7)What is Devops?
+8)What is CI/CD pipeline?
 
-@CrossOrigin("http://localhost:4200")
-@RestController
-@RequestMapping("/api/hotels")
-@RequiredArgsConstructor
-@Slf4j
-public class HotelController {
-
-    private final HotelService hotelService;
-
-    @PreAuthorize("hasRole('MANAGER')")
-    @PostMapping
-    public ResponseEntity<HotelResponseDTO> createHotel(@RequestBody HotelRequestDTO dto) {
-        // 1. Create the hotel and get the response DTO
-        log.info("Creating Hotel {}", dto.getName());
-        HotelResponseDTO createdHotel = hotelService.createHotel(dto);
-
-        // 2. Create the URI for the new resource
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(createdHotel.getHotelId())
-                .toUri();
-
-        // 3. Return a 201 Created status with the location header
-        return ResponseEntity.created(location).body(createdHotel);
-    }
-
-    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
-    @GetMapping
-    public ResponseEntity<List<HotelResponseDTO>> getAllHotels() {
-        log.info("Fetching all hotels");
-        return ResponseEntity.ok(hotelService.getAllHotels());
-    }
-
-    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
-    @GetMapping("/{id}")
-    public ResponseEntity<HotelResponseDTO> getHotelById(@PathVariable Long id) {
-        log.info("Getting hotel with hotelId {}", id);
-        return ResponseEntity.ok(hotelService.getHotelById(id));
-    }
-
-    @PreAuthorize("hasRole('MANAGER')")
-    @PutMapping("/{id}")
-    public ResponseEntity<HotelResponseDTO> updateHotelById(@PathVariable Long id, @RequestBody HotelRequestDTO dto) {
-        return ResponseEntity.ok(hotelService.updateHotel(id, dto));
-    }
-
-    @PreAuthorize("hasRole('MANAGER')")
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteHotel(@PathVariable Long id) {
-        hotelService.deleteHotel(id);
-        return ResponseEntity.ok("Hotel deleted");
-    }
-
-    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
-    @GetMapping("/search")
-    public ResponseEntity<List<HotelResponseDTO>> searchByLocation(@RequestParam String location) {
-        log.info("Fetching Hotel from location {}", location);
-        return ResponseEntity.ok(hotelService.searchByLocation(location));
-    }
-
-    @PreAuthorize("hasAnyRole('USER','MANAGER','ADMIN')")
-    @GetMapping("/filter")
-    public ResponseEntity<List<HotelResponseDTO>> filterByRating(@RequestParam Double rating) {
-        return ResponseEntity.ok(hotelService.filterByRating(rating));
-    }
-}

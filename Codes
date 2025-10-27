@@ -1,3 +1,72 @@
+छान 👍 म्हणजे तुला delete नकोय आता — फक्त त्या hotel साठी image_url column मध्ये image add (update) करायचं आहे.
+
+चला step-by-step करू 👇
+
+
+---
+
+✅ Step 1: आधी पाहा कोणत्या hotel साठी update करायचं आहे
+
+उदा.
+
+SELECT * FROM hotels WHERE name IN ('Hotel Bhagyshree', 'taj');
+
+याने तुला त्या दोन hotel चे hotel_id values कळतील (उदा. 5 आणि 6 असतील असे धरू).
+
+
+---
+
+✅ Step 2: नंतर image URL update करा
+
+उदा. तुझ्याकडे जर image link असेल जसे:
+
+https://example.com/images/bhagyshree.jpg
+https://example.com/images/taj.jpg
+
+तर query अशी लिही 👇
+
+UPDATE hotels 
+SET image_url = 'https://example.com/images/bhagyshree.jpg'
+WHERE name = 'Hotel Bhagyshree';
+
+UPDATE hotels 
+SET image_url = 'https://example.com/images/taj.jpg'
+WHERE name = 'taj';
+
+
+---
+
+✅ Step 3: Verify करा update झालं का
+
+SELECT name, image_url FROM hotels WHERE name IN ('Hotel Bhagyshree', 'taj');
+
+जर image_url योग्य दिसलं तर update यशस्वी झालं 🎉
+
+
+---
+
+हवं असल्यास तू मला सांग
+👉 “Hotel Bhagyshree” आणि “taj” साठी कोणती image URL घालायची आहे,
+मी तुला exact ready SQL queries लिहून देतो — copy-paste करायला.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Microservices
 ------------------
 1)What is monolithic and microservices architecture?

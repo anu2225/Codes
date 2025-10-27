@@ -1,272 +1,418 @@
-PS C:\Users\2440835\OneDrive - Cognizant\Documents\FINAL\ISG25JFA003_SmartHotelBookingSystem\frontend>
-PS C:\Users\2440835\OneDrive - Cognizant\Documents\FINAL\ISG25JFA003_SmartHotelBookingSystem\frontend> cd .\SmartHotelBookingSystem\
-PS C:\Users\2440835\OneDrive - Cognizant\Documents\FINAL\ISG25JFA003_SmartHotelBookingSystem\frontend\SmartHotelBookingSystem>npm start
-
-> smart-hotel-booking-system@0.0.0 start
-> ng serve
-
-Application bundle generation failed. [5.645 seconds] - 2025-10-26T13:40:24.804Z
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/admin.guard.ts:4:20:
-      4 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/auth.guard.ts:3:20:
-      3 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/guards/manager.guard.ts:5:20:
-      5 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/core/interceptors/unauthorized.interceptor.ts:6:20:
-      6 │ import * as i1 from "../services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/auth/login/login.ts:11:20:
-      11 │ import * as i2 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/auth/register/register.ts:10:20:
-      10 │ import * as i2 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/create-booking/create-booking.ts:10:20:
-      10 │ import * as i1 from "../../../core/services/bookingservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-all-bookings/get-all-bookings.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-booking-by-id/get-booking-by-id.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/bookingService.ts" instead of "src/app/core/services/bookingservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/booking/get-booking-by-user/get-booking-by-user.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/bookingservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/create-hotel/hotel.ts:7:20:
-      7 │ import * as i2 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/filter-hotel/hotel.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-id/hotel.ts:9:20:
-      9 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-id/hotel.ts:11:20:
-      11 │ import * as i3 from "../../../core/services/authservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/get-hotel-by-manager/get-hotel-by-manager.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/search-hotel/hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/hotelService.ts" instead of "src/app/core/services/hotelservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/hotel/update-hotel/hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/hotelservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/loyalty/get-reward-details/get-reward-details.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/loyaltyservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/loyalty/reward-history/reward-history.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/loyaltyservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/loyaltyService.ts" instead of "src/app/core/services/loyaltyservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/payment/create-payment/payment.ts:10:20:
-      10 │ import * as i4 from "../../../core/services/loyaltyservice";
-         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/paymentService.ts" instead of "src/app/core/services/paymentservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/payment/get-all-payments/payment.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/paymentservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-hotel/get-all-reviews-hotel.ts:7:20:
-      7 │ import * as i3 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/get-all-reviews-user/get-all-reviews-user.ts:5:20:
-      5 │ import * as i1 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/reviewService.ts" instead of "src/app/core/services/reviewservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/review/post-review/post-review.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/reviewservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/create-room/room.ts:7:20:
-      7 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/delete-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/filter-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-all-rooms/room.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-hotel-id/room.ts:6:20:
-      6 │ import * as i1 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-hotel-id/room.ts:8:20:
-      8 │ import * as i3 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/get-room-by-id/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/roomService.ts" instead of "src/app/core/services/roomservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/room/update-room/room.ts:6:20:
-      6 │ import * as i2 from "../../../core/services/roomservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/get-all-managers/get-all-managers.ts:4:20:
-      4 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/get-all-users/get-all-users.ts:3:20:
-      3 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/userService.ts" instead of "src/app/core/services/userservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/features/user/welcome-user/welcome-user.ts:6:20:
-      6 │ import * as i1 from "../../../core/services/userservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-▲ [WARNING] Use "src/app/core/services/authService.ts" instead of "src/app/core/services/authservice.ts" to avoid issues with case-sensitive file systems [different-path-case]
-
-    src/app/shared/components/navbar/navbar.ts:9:20:
-      9 │ import * as i1 from "../../../core/services/authservice";
-        ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-X [ERROR] Cannot destructure property 'pos' of 'file.referencedFiles[index]' as it is undefined. [plugin angular-compiler]
-
-
-Watch mode enabled. Watching for file changes...
+"C:\Program Files\Java\jdk-21\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2025.1.3\lib\idea_rt.jar=50358" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\2440835\IdeaProjects\ISG25JFA003_SmartHotelBookingSystem\backend\smarthotelbooking\target\classes;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.5.5\spring-boot-starter-data-jpa-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.5\spring-boot-starter-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.5\spring-boot-starter-logging-3.5.5.jar;C:\Users\2440835\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\2440835\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\2440835\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\2440835\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\2440835\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\2440835\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\2440835\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.5.5\spring-boot-starter-jdbc-3.5.5.jar;C:\Users\2440835\.m2\repository\com\zaxxer\HikariCP\6.3.2\HikariCP-6.3.2.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-jdbc\6.2.10\spring-jdbc-6.2.10.jar;C:\Users\2440835\.m2\repository\org\hibernate\orm\hibernate-core\6.6.26.Final\hibernate-core-6.6.26.Final.jar;C:\Users\2440835\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\2440835\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\2440835\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\2440835\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\2440835\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\2440835\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\2440835\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\2440835\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\2440835\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\2440835\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\2440835\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\2440835\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\2440835\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\2440835\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\2440835\.m2\repository\org\springframework\data\spring-data-jpa\3.5.3\spring-data-jpa-3.5.3.jar;C:\Users\2440835\.m2\repository\org\springframework\data\spring-data-commons\3.5.3\spring-data-commons-3.5.3.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-orm\6.2.10\spring-orm-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-context\6.2.10\spring-context-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-tx\6.2.10\spring-tx-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-beans\6.2.10\spring-beans-6.2.10.jar;C:\Users\2440835\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-aspects\6.2.10\spring-aspects-6.2.10.jar;C:\Users\2440835\.m2\repository\org\aspectj\aspectjweaver\1.9.24\aspectjweaver-1.9.24.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.5.5\spring-boot-starter-security-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-aop\6.2.10\spring-aop-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\security\spring-security-config\6.5.3\spring-security-config-6.5.3.jar;C:\Users\2440835\.m2\repository\org\springframework\security\spring-security-web\6.5.3\spring-security-web-6.5.3.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-expression\6.2.10\spring-expression-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.5\spring-boot-starter-web-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.5\spring-boot-starter-json-3.5.5.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.2\jackson-datatype-jdk8-2.19.2.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.2\jackson-datatype-jsr310-2.19.2.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.2\jackson-module-parameter-names-2.19.2.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.5\spring-boot-starter-tomcat-3.5.5.jar;C:\Users\2440835\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.44\tomcat-embed-core-10.1.44.jar;C:\Users\2440835\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.44\tomcat-embed-websocket-10.1.44.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-web\6.2.10\spring-web-6.2.10.jar;C:\Users\2440835\.m2\repository\io\micrometer\micrometer-observation\1.15.3\micrometer-observation-1.15.3.jar;C:\Users\2440835\.m2\repository\io\micrometer\micrometer-commons\1.15.3\micrometer-commons-1.15.3.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-webmvc\6.2.10\spring-webmvc-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.5.5\spring-boot-starter-validation-3.5.5.jar;C:\Users\2440835\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.44\tomcat-embed-el-10.1.44.jar;C:\Users\2440835\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.3.Final\hibernate-validator-8.0.3.Final.jar;C:\Users\2440835\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\2440835\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\2440835\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\2440835\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\2440835\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.8.13\springdoc-openapi-starter-webmvc-ui-2.8.13.jar;C:\Users\2440835\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.8.13\springdoc-openapi-starter-webmvc-api-2.8.13.jar;C:\Users\2440835\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.8.13\springdoc-openapi-starter-common-2.8.13.jar;C:\Users\2440835\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.36\swagger-core-jakarta-2.2.36.jar;C:\Users\2440835\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\2440835\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.36\swagger-annotations-jakarta-2.2.36.jar;C:\Users\2440835\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.36\swagger-models-jakarta-2.2.36.jar;C:\Users\2440835\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.19.2\jackson-dataformat-yaml-2.19.2.jar;C:\Users\2440835\.m2\repository\org\webjars\swagger-ui\5.28.1\swagger-ui-5.28.1.jar;C:\Users\2440835\.m2\repository\org\webjars\webjars-locator-lite\1.1.0\webjars-locator-lite-1.1.0.jar;C:\Users\2440835\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-devtools\3.5.5\spring-boot-devtools-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot\3.5.5\spring-boot-3.5.5.jar;C:\Users\2440835\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.5\spring-boot-autoconfigure-3.5.5.jar;C:\Users\2440835\.m2\repository\com\mysql\mysql-connector-j\9.4.0\mysql-connector-j-9.4.0.jar;C:\Users\2440835\.m2\repository\org\projectlombok\lombok\1.18.38\lombok-1.18.38.jar;C:\Users\2440835\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\2440835\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-core\6.2.10\spring-core-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\spring-jcl\6.2.10\spring-jcl-6.2.10.jar;C:\Users\2440835\.m2\repository\org\springframework\security\spring-security-core\6.5.3\spring-security-core-6.5.3.jar;C:\Users\2440835\.m2\repository\org\springframework\security\spring-security-crypto\6.5.3\spring-security-crypto-6.5.3.jar com.cognizant.smarthotelbooking.SmartHotelBookingApplication
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-10-27T09:04:32.645+05:30  INFO 23588 --- [  restartedMain] c.c.s.SmartHotelBookingApplication       : Starting SmartHotelBookingApplication using Java 21 with PID 23588 (C:\Users\2440835\IdeaProjects\ISG25JFA003_SmartHotelBookingSystem\backend\smarthotelbooking\target\classes started by 2440835 in C:\Users\2440835\IdeaProjects\ISG25JFA003_SmartHotelBookingSystem)
+2025-10-27T09:04:32.666+05:30  INFO 23588 --- [  restartedMain] c.c.s.SmartHotelBookingApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-27T09:04:32.767+05:30  INFO 23588 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-27T09:04:32.767+05:30  INFO 23588 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-27T09:04:34.657+05:30  INFO 23588 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-27T09:04:34.815+05:30  INFO 23588 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 9 JPA repository interfaces.
+2025-10-27T09:04:36.301+05:30  INFO 23588 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-27T09:04:36.332+05:30  INFO 23588 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T09:04:36.332+05:30  INFO 23588 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-27T09:04:36.488+05:30  INFO 23588 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-27T09:04:36.488+05:30  INFO 23588 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3719 ms
+2025-10-27T09:04:36.868+05:30  INFO 23588 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-27T09:04:37.027+05:30  INFO 23588 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-27T09:04:37.079+05:30  INFO 23588 --- [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-27T09:04:37.591+05:30  INFO 23588 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-27T09:04:37.635+05:30  INFO 23588 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-27T09:04:38.224+05:30  INFO 23588 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1efebcc9
+2025-10-27T09:04:38.228+05:30  INFO 23588 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-27T09:04:38.292+05:30  WARN 23588 --- [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-27T09:04:38.292+05:30  WARN 23588 --- [  restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-27T09:04:38.329+05:30  INFO 23588 --- [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-27T09:04:40.349+05:30  INFO 23588 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-27T09:04:40.594+05:30  INFO 23588 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T09:04:41.635+05:30  INFO 23588 --- [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2025-10-27T09:04:41.729+05:30  INFO 23588 --- [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-27T09:04:43.248+05:30  WARN 23588 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-27T09:04:44.953+05:30  INFO 23588 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-27T09:04:45.021+05:30  INFO 23588 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-27T09:04:45.037+05:30  INFO 23588 --- [  restartedMain] c.c.s.SmartHotelBookingApplication       : Started SmartHotelBookingApplication in 13.223 seconds (process running for 14.167)
+2025-10-27T09:06:19.895+05:30  INFO 23588 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-27T09:06:19.896+05:30  INFO 23588 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-27T09:06:19.900+05:30  INFO 23588 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-27T09:06:20.062+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxMTMxMzU5LCJleHAiOjE3NjExNjczNTl9.63nzgdO3GRV9hrJSJ-ixZXTRjIFuy_F5cuG3X3t6J1M
+2025-10-27T09:06:20.298+05:30 ERROR 23588 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.JwtException: Token is Invalid or expired
+	at com.cognizant.smarthotelbooking.util.JwtUtil.validateToken(JwtUtil.java:63) ~[classes/:na]
+	at com.cognizant.smarthotelbooking.util.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:31) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:06:39.951+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:06:40.290+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2MTk5LCJleHAiOjE3NjE1NzIxOTl9.ZX9GnHza2aoxtAmbomxjl7aQkAjhIHV1H4I5gB8OeO0
+2025-10-27T09:06:40.316+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:06:40.347+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:06:40.349+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:06:40.402+05:30  WARN 23588 --- [nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:07:43.065+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2MTk5LCJleHAiOjE3NjE1NzIxOTl9.ZX9GnHza2aoxtAmbomxjl7aQkAjhIHV1H4I5gB8OeO0
+2025-10-27T09:07:43.070+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:07:43.079+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:07:43.079+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:07:43.084+05:30  WARN 23588 --- [nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:08:05.487+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:08:05.624+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:05.637+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:05.667+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:05.667+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:05.699+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:08:12.157+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:12.165+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:12.181+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:12.181+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:12.185+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:08:22.690+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:22.698+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:22.710+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:22.710+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:22.710+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:08:29.220+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:29.227+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:29.251+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:29.251+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:29.259+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.controller.HotelController         : Getting hotel with hotelId 2
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+2025-10-27T09:08:29.329+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:29.329+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:29.340+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:29.343+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:29.360+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:29.360+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:29.362+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:29.362+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:29.364+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.ReviewController        : Getting reviews of Hotel with hotelId 2
+2025-10-27T09:08:29.366+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.controller.RoomController          : Getting rooms from Hotel with hotelId 2
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+Hibernate: select r1_0.review_id,r1_0.comment,r1_0.hotel_id,r1_0.rating,r1_0.response,r1_0.timestamp,r1_0.user_id from review r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+Hibernate: select r1_0.room_id,r1_0.availability,r1_0.features,r1_0.hotel_id,r1_0.price,r1_0.type from rooms r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.name,u1_0.password,u1_0.role from user u1_0 left join loyalty_account la1_0 on u1_0.user_id=la1_0.user_id where u1_0.user_id=?
+2025-10-27T09:08:29.422+05:30  WARN 23588 --- [nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.cognizant.smarthotelbooking.exception.RoomNotFoundException: No rooms found for hotel with ID: 2]
+2025-10-27T09:08:59.600+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:08:59.613+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:08:59.643+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:08:59.645+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:08:59.645+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:09:01.715+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:01.719+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:01.727+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:01.729+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:01.729+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.controller.HotelController         : Getting hotel with hotelId 7
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+2025-10-27T09:09:01.979+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:01.979+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:01.984+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:01.984+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:02.000+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:02.000+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:02.000+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:02.000+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:02.002+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.controller.ReviewController        : Getting reviews of Hotel with hotelId 7
+2025-10-27T09:09:02.004+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.controller.RoomController          : Getting rooms from Hotel with hotelId 7
+Hibernate: select r1_0.review_id,r1_0.comment,r1_0.hotel_id,r1_0.rating,r1_0.response,r1_0.timestamp,r1_0.user_id from review r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+2025-10-27T09:09:02.009+05:30  WARN 23588 --- [nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.cognizant.smarthotelbooking.exception.ReviewNotFoundException: No reviews found for hotel with ID: 7]
+Hibernate: select r1_0.room_id,r1_0.availability,r1_0.features,r1_0.hotel_id,r1_0.price,r1_0.type from rooms r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+2025-10-27T09:09:23.548+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:23.550+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:23.559+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:23.559+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:23.568+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.HotelController         : Getting hotel with hotelId 7
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+2025-10-27T09:09:23.612+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:23.612+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnVyYWdAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NjE1MzYyODUsImV4cCI6MTc2MTU3MjI4NX0.6N7qLA-dJniPVUe_7hI6mHOIfS4XMIiGu88WSBzkTNE
+2025-10-27T09:09:23.619+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:23.619+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:23.634+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:23.634+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : User role from token: USER
+2025-10-27T09:09:23.634+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:23.634+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_USER]
+2025-10-27T09:09:23.636+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.controller.ReviewController        : Getting reviews of Hotel with hotelId 7
+2025-10-27T09:09:23.636+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.controller.RoomController          : Getting rooms from Hotel with hotelId 7
+Hibernate: select r1_0.review_id,r1_0.comment,r1_0.hotel_id,r1_0.rating,r1_0.response,r1_0.timestamp,r1_0.user_id from review r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0 where h1_0.hotel_id=?
+2025-10-27T09:09:23.645+05:30  WARN 23588 --- [nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.cognizant.smarthotelbooking.exception.ReviewNotFoundException: No reviews found for hotel with ID: 7]
+Hibernate: select r1_0.room_id,r1_0.availability,r1_0.features,r1_0.hotel_id,r1_0.price,r1_0.type from rooms r1_0 left join hotels h1_0 on h1_0.hotel_id=r1_0.hotel_id where h1_0.hotel_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:09:40.833+05:30  WARN 23588 --- [nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:09:54.708+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:09:58.108+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2hpc2hAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzYxNTM2Mzk0LCJleHAiOjE3NjE1NzIzOTR9.O1_84ZYSzDe2apyy5DY-7u0BGu_8ld1NJstvFhTYGBY
+2025-10-27T09:09:58.113+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:09:58.118+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : User role from token: ADMIN
+2025-10-27T09:09:58.118+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_ADMIN]
+2025-10-27T09:09:58.120+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.UserController          : Getting all users
+Hibernate: select u1_0.user_id,u1_0.name,u1_0.email,u1_0.role,u1_0.contact_number from user u1_0 where u1_0.role=?
+2025-10-27T09:10:00.501+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2hpc2hAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzYxNTM2Mzk0LCJleHAiOjE3NjE1NzIzOTR9.O1_84ZYSzDe2apyy5DY-7u0BGu_8ld1NJstvFhTYGBY
+2025-10-27T09:10:00.525+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:10:00.549+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : User role from token: ADMIN
+2025-10-27T09:10:00.549+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_ADMIN]
+2025-10-27T09:10:00.554+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.controller.UserController          : Getting all managers
+Hibernate: select u1_0.user_id,u1_0.name,u1_0.email,u1_0.role,u1_0.contact_number from user u1_0 where u1_0.role=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:10:15.887+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:10:15.938+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2NDE1LCJleHAiOjE3NjE1NzI0MTV9.2FbjV2Sukbsx68MgdkfgYiGIcknMF2p01I6aGKsa49c
+2025-10-27T09:10:15.947+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:10:15.959+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:10:15.959+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:10:15.965+05:30  WARN 23588 --- [nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:11:20.598+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2NDE1LCJleHAiOjE3NjE1NzI0MTV9.2FbjV2Sukbsx68MgdkfgYiGIcknMF2p01I6aGKsa49c
+2025-10-27T09:11:20.610+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:11:20.643+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:11:20.643+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:11:20.655+05:30  WARN 23588 --- [io-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:14:05.118+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:14:07.980+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2hpc2hAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzYxNTM2NjQ1LCJleHAiOjE3NjE1NzI2NDV9.kyW6UdQ8DNlTm00lrqeyuMlH9j_UGk776JDfWnQ3EWo
+2025-10-27T09:14:07.998+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:14:08.020+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : User role from token: ADMIN
+2025-10-27T09:14:08.022+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_ADMIN]
+2025-10-27T09:14:08.024+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.controller.UserController          : Getting all managers
+Hibernate: select u1_0.user_id,u1_0.name,u1_0.email,u1_0.role,u1_0.contact_number from user u1_0 where u1_0.role=?
+2025-10-27T09:15:09.238+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2hpc2hAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzYxNTM2NjQ1LCJleHAiOjE3NjE1NzI2NDV9.kyW6UdQ8DNlTm00lrqeyuMlH9j_UGk776JDfWnQ3EWo
+2025-10-27T09:15:09.238+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:15:09.257+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : User role from token: ADMIN
+2025-10-27T09:15:09.257+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_ADMIN]
+2025-10-27T09:15:09.441+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.controller.AdminController         : Creating Manager manager
+Hibernate: insert into user (active,contact_number,email,name,password,role) values (?,?,?,?,?,?)
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:15:25.154+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:15:25.259+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2NzI1LCJleHAiOjE3NjE1NzI3MjV9.jnLGQnTkL2SU0u0v5IZQmm1yHSdjaBRrkx2lQZsAzQE
+2025-10-27T09:15:25.298+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:15:25.341+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:15:25.341+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:15:25.350+05:30  WARN 23588 --- [nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:17:59.667+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2NzI1LCJleHAiOjE3NjE1NzI3MjV9.jnLGQnTkL2SU0u0v5IZQmm1yHSdjaBRrkx2lQZsAzQE
+2025-10-27T09:17:59.674+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:17:59.714+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:17:59.714+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:17:59.751+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.controller.HotelController         : Creating Hotel Hotel Ginger
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: insert into hotels (amenities,location,manager_id,name,rating) values (?,?,?,?,?)
+2025-10-27T09:17:59.931+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2NzI1LCJleHAiOjE3NjE1NzI3MjV9.jnLGQnTkL2SU0u0v5IZQmm1yHSdjaBRrkx2lQZsAzQE
+2025-10-27T09:17:59.937+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:17:59.951+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:17:59.951+05:30  INFO 23588 --- [nio-8080-exec-6] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:17:59.951+05:30  WARN 23588 --- [nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:18:14.224+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:18:14.526+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2ODk0LCJleHAiOjE3NjE1NzI4OTR9.-XTEnJy-rodmDnlcqx94yAbkFE0nSzfjgd5z_934DMU
+2025-10-27T09:18:14.536+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:18:14.539+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:18:14.539+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:18:14.552+05:30  WARN 23588 --- [io-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:18:31.187+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2ODk0LCJleHAiOjE3NjE1NzI4OTR9.-XTEnJy-rodmDnlcqx94yAbkFE0nSzfjgd5z_934DMU
+2025-10-27T09:18:31.190+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:18:31.190+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:18:31.190+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:18:31.190+05:30  INFO 23588 --- [nio-8080-exec-3] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:18:39.025+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2ODk0LCJleHAiOjE3NjE1NzI4OTR9.-XTEnJy-rodmDnlcqx94yAbkFE0nSzfjgd5z_934DMU
+2025-10-27T09:18:39.025+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:18:39.044+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:18:39.044+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:18:39.044+05:30  INFO 23588 --- [nio-8080-exec-1] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+2025-10-27T09:18:56.366+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2ODk0LCJleHAiOjE3NjE1NzI4OTR9.-XTEnJy-rodmDnlcqx94yAbkFE0nSzfjgd5z_934DMU
+2025-10-27T09:18:56.383+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:18:56.394+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:18:56.394+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:18:56.400+05:30  INFO 23588 --- [nio-8080-exec-8] c.c.s.controller.HotelController         : Fetching all hotels
+Hibernate: select h1_0.hotel_id,h1_0.amenities,h1_0.location,h1_0.manager_id,h1_0.name,h1_0.rating from hotels h1_0
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:19:07.666+05:30  INFO 23588 --- [nio-8080-exec-9] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:19:07.766+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM2OTQ3LCJleHAiOjE3NjE1NzI5NDd9.9rQAIiKoKRqQFvffUFloEUhFI4jNZf4WH8uSocJMCrY
+2025-10-27T09:19:07.778+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:19:07.792+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:19:07.792+05:30  INFO 23588 --- [nio-8080-exec-2] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:19:07.799+05:30  WARN 23588 --- [nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:20:08.247+05:30  INFO 23588 --- [nio-8080-exec-4] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzd2FwbmlsQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzYwNjcyNjIwLCJleHAiOjE3NjA3MDg2MjB9.1yajCK4_DsIhsvZYdc0ad42PgHa6haUZwLayoujxucw
+2025-10-27T09:20:08.255+05:30 ERROR 23588 --- [nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.JwtException: Token is Invalid or expired
+	at com.cognizant.smarthotelbooking.util.JwtUtil.validateToken(JwtUtil.java:63) ~[classes/:na]
+	at com.cognizant.smarthotelbooking.util.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:31) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+Hibernate: select la1_0.loyalty_id,la1_0.last_updated,la1_0.points_balance,la1_0.user_id,u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from loyalty_account la1_0 join user u1_0 on u1_0.user_id=la1_0.user_id where la1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.active,u1_0.contact_number,u1_0.email,u1_0.name,u1_0.password,u1_0.role from user u1_0 where u1_0.email=?
+2025-10-27T09:20:24.334+05:30  INFO 23588 --- [nio-8080-exec-5] c.c.s.controller.AuthController          : Attempting to login...
+2025-10-27T09:20:24.374+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM3MDI0LCJleHAiOjE3NjE1NzMwMjR9._4auoK2kXPN2Wi3jcdj92Wp41Fq7IiD1lvk1IZyilFM
+2025-10-27T09:20:24.387+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:20:24.391+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:20:24.391+05:30  INFO 23588 --- [nio-8080-exec-7] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:20:24.391+05:30  WARN 23588 --- [nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]
+2025-10-27T09:21:43.211+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Extracted Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzYxNTM3MDI0LCJleHAiOjE3NjE1NzMwMjR9._4auoK2kXPN2Wi3jcdj92Wp41Fq7IiD1lvk1IZyilFM
+2025-10-27T09:21:43.218+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Is Token Valid? true
+2025-10-27T09:21:43.228+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : User role from token: MANAGER
+2025-10-27T09:21:43.228+05:30  INFO 23588 --- [io-8080-exec-10] c.c.s.util.JwtAuthenticationFilter       : Authorities: [ROLE_MANAGER]
+2025-10-27T09:21:43.232+05:30  WARN 23588 --- [io-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "manager"]

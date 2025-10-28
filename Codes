@@ -1,108 +1,137 @@
-छान 👍 म्हणजे तुला delete नकोय आता — फक्त त्या hotel साठी image_url column मध्ये image add (update) करायचं आहे.
-
-चला step-by-step करू 👇
-
-
----
-
-✅ Step 1: आधी पाहा कोणत्या hotel साठी update करायचं आहे
-
-उदा.
-
-SELECT * FROM hotels WHERE name IN ('Hotel Bhagyshree', 'taj');
-
-याने तुला त्या दोन hotel चे hotel_id values कळतील (उदा. 5 आणि 6 असतील असे धरू).
-
-
----
-
-✅ Step 2: नंतर image URL update करा
-
-उदा. तुझ्याकडे जर image link असेल जसे:
-
-https://example.com/images/bhagyshree.jpg
-https://example.com/images/taj.jpg
-
-तर query अशी लिही 👇
-
-UPDATE hotels 
-SET image_url = 'https://example.com/images/bhagyshree.jpg'
-WHERE name = 'Hotel Bhagyshree';
-
-UPDATE hotels 
-SET image_url = 'https://example.com/images/taj.jpg'
-WHERE name = 'taj';
-
-
----
-
-✅ Step 3: Verify करा update झालं का
-
-SELECT name, image_url FROM hotels WHERE name IN ('Hotel Bhagyshree', 'taj');
-
-जर image_url योग्य दिसलं तर update यशस्वी झालं 🎉
-
-
----
-
-हवं असल्यास तू मला सांग
-👉 “Hotel Bhagyshree” आणि “taj” साठी कोणती image URL घालायची आहे,
-मी तुला exact ready SQL queries लिहून देतो — copy-paste करायला.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Microservices
-------------------
-1)What is monolithic and microservices architecture?
-2)What are the challenges you may face in microservices architecture?
-3)What is client side discovery and server side discovery?
-4)What is Eureka server?
-5)What are the different methods to implement microservices communication?
- RestTemplate,FeignClient,Webclient
-6)What is the role of API gateway and loadbalancer in microservices architecture?
-7)What are the fault tolerance mechanisms that can be implemented in microservices?
-  Hystrix(deprecated),Resilience(circuitbreaker,retry)
-8)What is Spring cloud config server? (or) How will you externalize the configuration in microservices?
-9)How can you monitor microservices?
-  Refer -Spring boot actuator
-10) What is the use of the tools prometheus and grafana?
-11)OAuth and SSO (single sign on) in microservices?
-12)What is an edge service in microservices architecture?
-13)Spring security for microservices
-
-Docker
-----------
-1)Difference between containerization and virtualization
-2)Docker is used for build,ship and run. Explain.
-3)Learn basic docker commands
-4)What is docker-compose?
-5)docker network
-6)Use of Dockerfile
-
-GCP
--------
-1)What is cloud computing and advantages?
-2)Cloud service models - IaaS,SaaS,Paas
-3)Cloud deployment models -private,public,Hybrid,community
-4)GCP Infrastructure - Zone, Region
-5)Services of GCP (Compute, Storage , IAM, Networking etc)
-6)Load balancers, API gateway
-7)What is Devops?
-8)What is CI/CD pipeline?
-
+FINAL EVALUATION FOR CHENNAI JAVA-STANDARD(ISG):-These QUETSIONS WERE Asked
+ 
+1.what are types of data types in java
+2.what is string builder and string buffer
+3.why strings are immutable
+4..equals and ==
+5.open notepad and type 123456789
+Try to add all these numbers by using java program.
+6.why multiple inheritance is not supported in java
+7.can we extend string class
+8.can we extend exception class
+9.why java people makes strings as immutable
+10.if we have classes like A,B,C,D and b extends A,c extends b,d extends c and d class is having method m1 can we create an object for a class like
+A a=new D();
+a.m1();
+11.can you create our own exceptions
+12.what are the class loaders in jvm
+13.what is meant by bootstrap class loaders
+14.what are the predefined methods available in object class
+15.difference between string constant pool and hash memory
+16.can you tell me difference between
+String s="hello";
+String s1=new String("hello");
+17.can I move that above mentioned s=hello from string constant pool to heap memory and how can we move(intern method)
+18.why maps are not part of the collections
+19.when to use linkedlist and when to use Arraylist
+20.have you ever got stackoverflow error
+21.How to increase heap memory of java.
+Learn 17&24 features in future.
+ 
+If string s[]={"hello","ant","boy","hello","cat"}
+What is duplicate and find it by logic
+Static binding and dynamic binding
+Difference between method and function
+Method overloading and overriding
+What is marker interface in java
+Can you name few of the marker interfaces in java
+Predefined functional interfaces in java8
+Can we give class inside class
+Checked exceptions and unchecked exceptions differences
+Can we handle the checked and unchecked exceptions
+Can we give try-catch block inside catch block
+Can we give try-catch inside finally block
+Difference between finally, final and finalize
+ 
+1. Static and dynamic binding
+2.can we give abstract to the variable
+3.wht we cannot give abstract to variable
+4.a=2;
+System.out.println(a++ + ++a);
+5. Is the above statement is valid code I mean can we give like that is sos statement
+6. in exception handling can we give try followed by finally without catch block
+7. Can we give try-catch inside the finally block
+8.can we give multiple catch blocks after try block
+9.try catch exception catch runtime exception is this valid
+10.can you tell me the hierarchy of exception
+11.what is meant by array
+12.what is meant by collections
+13.difference between list and set
+14.Difference between Arraylist and linkedlist
+ 
+1.predefined methods in string class
+2..equals and ==equals in string
+3..equals method from which class
+4.difference between .equals and . equalignore case
+5. Write a program to reverse a string word
+Hello world means output should be world hello
+6.what is string constant pool
+7.what is heap memory
+8.are string objects stored in heap memory or not
+9.class A extends B
+10.class A extends B is it
+ 
+1.predefined methods in string class
+2..equals and ==equals in string
+3..equals method from which class
+4.difference between .equals and . equalignore case
+5. Write a program to reverse a string word
+Hello world means output should be world hello
+6.what is string constant pool
+7.what is heap memory
+8.are string objects stored in heap memory or not
+9.class A extends B
+10.class A extends B is it
+ 
+[18/09, 8:44 pm] Ravipati Giridhar: Java:
+1.what is java and features of java
+2.Jdk,jre,jvm
+3.operator types
+4.Datatypes types(primitive and no primitive)
+5.set,Array
+6.Collections
+7.Exception handling
+8.4 pillars of oops(1.inheritance, encapsulation, polymorphism, abstraction)
+9.java8 features
+10.what is thread and multithreading.
+11.static,final classes
+12.this,super
+13.constructor and types
+14.Exception hierarchy
+[18/09, 9:07 pm] Ravipati Giridhar: Sql
+1.what is sql & types of sql commands
+2.primarykey, foreign key, unique key, component key
+3.conatraints in sql
+4.Delete,drop, truncate
+5.where and having
+6.joins and types of joins
+7.char and varchar difference
+8.subquery
+9.Group by , order by
+10.views
+11.Acid properties
+12.Transactions
+13.Triggers
+14.commit, rollback,savepoint
+15.In and exists
+[18/09, 9:15 pm] Ravipati Giridhar: Spring
+1.what is spring?what is use of it
+2.Dependency Injection, Inversion of control and their types
+3.stereotype Annotations
+4.bean lifecycle
+5.what is spring boot
+6.how it is different from spring core
+7.what are jdbc, spring jdbc, jpa, hibernate and spring data jpa
+8.Spring MVC flow with architecture
+9@springbootapplication
+10.what are beans
+11.spring starters,spring initilaizer
+12.What is maven? what is use of it
+13.Spring boot actuators
+14.spring security
+15.Thymeleaf
+16.controller, restcontroller,Rest apis
+ 
+ 
+ 
+ 
